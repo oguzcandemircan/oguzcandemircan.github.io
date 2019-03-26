@@ -1,0 +1,42 @@
+---
+layout: default
+comments: true
+---
+<article class="post-detail mt-4" id="article">
+    <h2>{{ page.title }}</h2>
+    <span class="time" id="time"></span>
+    <img src="{{ page.image }}" alt="{{ page.title }}" />
+    <div class="content">
+        {{ page.content }}
+    </div>
+    <div class="tags">
+        <ul>
+            {% for tag in page.tags %}
+            <li><a href="{{ site.url }}/etiketler#{{ tag }}" title="{{ tag }}"><span>{{ tag }}</span></a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="date">
+        <span title="{{ page.date | date: '%d/%m/%Y' }}">
+            {{ page.date | date: "%-d" }}
+            {% assign m = page.date | date: "%-m" | minus: 0 %}
+            {{ site.data.locale.tr.date.month_names[m] }}
+            {{ page.date | date: "%Y" }}
+        </span>
+    </div>
+    <div class="post-navigation hr row">
+        {% if page.previous.url %}
+            <a title="{{ page.next.prev }}" class="prev col" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+        {% else %}
+            <a title="{{ site.navs[0].name }}" class="prev col" href="{{ site.url }}">&laquo; {{ site.navs[0].name }}</a>
+        {% endif %}
+        {% if page.next.url %}
+            <a title="{{ page.next.title }}" class="next col" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+        {% endif %}
+    </div>
+    <div class="disqus-comments"> {% include disqus.html %} </div>
+</article>
+
+<script>
+    readTime('article', 'time');
+</script>

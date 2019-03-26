@@ -1,0 +1,20 @@
+<div class="sub-nav">
+    {% for nav in site.navs %}
+        {% if  nav.url == page.url  %}
+            <a href="{{ nav.url }}" id="{{ nav.name }}" class="active" >{{ nav.name }}</a>
+        {% else %}
+            <a href="{{ nav.url }}" id="{{ nav.name }}" >{{ nav.name }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<!-- <br>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">home</a></li>
+        {% for category in page.categories %}
+        <li class="breadcrumb-item"><a href="#">{{ category }}</a></li>
+        {% endfor %}
+        <li class="breadcrumb-item active" aria-current="page">{{ page.title | downcase }}</li>
+    </ol>
+</nav> -->

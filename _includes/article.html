@@ -1,0 +1,25 @@
+<article class="post">
+    <div>
+        <a href="{{ post.url | remove_first:'/'}}">
+            <img src="{{ post.image }}" alt="{{ post.title }}" />
+            <h2>{{ post.title }}</h2>
+            <span class="time">
+                <i class="far fa-clock"></i>
+                {% assign words = post.content | number_of_words %}
+                {% if words < 360 %}
+                    1
+                {% else %}
+                {{ words | divided_by:180 }}
+                {% endif %}
+                dk okuma süresi
+            </span>
+            <p>{{ post.description | strip_html }}</p>
+        </a>
+    </div>
+    <span class="post-date" title="{{ post.date | date: '%d/%m/%Y' }}">
+        {{ post.date | date: "%-d" }}
+        {% assign m = post.date | date: "%-m" | minus: 0 %}
+        {{ site.data.locale.tr.date.month_names[m] }}
+        {{ post.date | date: "%Y" }}
+    </span>
+</article>
