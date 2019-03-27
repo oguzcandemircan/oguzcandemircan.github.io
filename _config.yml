@@ -37,6 +37,8 @@ loader:
   text: "Oğuzcan Demrican"
 
 url: "https://oguzcandemircan.com"
+permalink: :title
+default_language: tr
 
 author: 
   name: Oğuzcan Demircan
