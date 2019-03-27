@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    personel-simple-blog-theme (0.1.0)
+    personel-simple-blog-theme (1.0.0)
       jekyll (~> 3.8)
       jekyll-sitemap
 

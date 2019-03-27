@@ -1,6 +1,7 @@
 <div class="sub-nav">
     {% for nav in site.navs %}
-        {% if  nav.url == page.url  %}
+     {% assign nav_url = nav.url | append: '.html'%}
+        {% if  nav.url == page.url or nav_url == page.url  %}
             <a href="{{ nav.url }}" id="{{ nav.name }}" class="active" >{{ nav.name }}</a>
         {% else %}
             <a href="{{ nav.url }}" id="{{ nav.name }}" >{{ nav.name }}</a>

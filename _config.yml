@@ -4,13 +4,8 @@ meta:
   owner: Oğuzcan Demircan
   generator: Oğuzcan Demircan
   # description: laravel, php, vuejs, javascript etc. my thinking about programming languages, frameworks, technologies, and various other things.
-  # Bilginin paylaştıkça çoğalacağına inandığım için ilgi duyduğum  alanlardaki düşünce ve deneyimlerimi paylaşmak için blog sitemi oluşturdum. İyi okumalar :)
-  description: laravel, php, vuejs, javascript vb. programlama dilleri, frameworkleri, teknolojileri ve diğer çeşitli şeyler hakkındaki düşüncelerimi içeren blog.
+  description: laravel, php, vuejs, javascript vb. programlama dilleri, frameworkleri, teknolojileri ve diğer çeşitli alanlar hakkındaki düşünce ve deneyimlerimi içeren blog.
   keywords: oguzcandemircan, oğuzcan demircan, laravel, developer, backend, php, yazılım, açık kaynak, software developer, open source, vue js, javascript, yazılım geliştirici, geliştirici
-
-default_language: tr
-
-permalink: :title
 
 navs:
 - name: anasayfa
@@ -18,34 +13,30 @@ navs:
 
 - name: makaleler
   url: /makaleler 
+
 - name: etiketler
   url: /etiketler
+
 - name: Hakkımda
   url: /hakkimda
 
-# - name: contact
-#   url: /contact
-
 social-network-links:
-    twitter: oguzcandemircan
-    github: oguzcandemircan
-    gitlab: oguzcandemircan
-    medium: oguzcandemircan
-    linkedin: oguzcandemircan
-    email: "demircanoguzcan@gmail.com"
+  twitter: oguzcandemircan
+  github: oguzcandemircan
+  gitlab: oguzcandemircan
+  medium: oguzcandemircan
+  linkedin: oguzcandemircan
+  email: demircanoguzcan@gmail.com
 
 disqus:
   active: true
   username: oguzcandemircan
 
 loader: 
-    active: false
-    text: "Oğuzcan Demrican"
+  active: false
+  text: "Oğuzcan Demrican"
 
-
-url: "https://oguzcandemircan.com" # the base hostname & protocol for your site
-plugins:
-  - jekyll-sitemap
+url: "https://oguzcandemircan.com"
 
 author: 
   name: Oğuzcan Demircan
@@ -54,3 +45,6 @@ author:
 
 footer:
   text: © 2019 Oğuzcan Demircan All Rights Reserved
+
+plugins:
+  - jekyll-sitemap
