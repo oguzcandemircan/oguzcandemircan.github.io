@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>
-        {% if page.title %}
-         {{ page.title }} - 
-        {% endif %}
-        {{ site.meta.title}}
-    </title>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.meta.title}}</title>
     
     <meta name="google-site-verification" content="{{ site.google.site_verification }}" />
 
