@@ -50,3 +50,7 @@ footer:
 
 plugins:
   - jekyll-sitemap
+
+
+google:
+  site_verification: wzOppR9AsH2034ojvcyoE981gi2ux8R27lO4wJXY6pk
