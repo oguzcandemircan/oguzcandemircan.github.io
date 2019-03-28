@@ -8,12 +8,16 @@ tags: [docker, docker container, docker image, dockerfile, geliştirme ortamı, 
 categories: [docker, geliştirme ortamı, yazılım, software]
 ---
 
+**Yeni nesil geliştirme ortamı** adı altında başladığımız, 4.bölümlük yazı dizisinin 1. bölümüne hoş geldiniz. 
+
+Bu bölümde Docker, Dockerfile, Docker Container(Konteyner), Docker Image(imaj), nedir ? Docker biz geliştiriciler için ne ifade ediyor ? Neden Docker kullanalım ? Dockerı nasıl kullanırız vb. gibi sorulara cevap arıyacağız.
+
 #### Docker Nedir ?
 
 Docker çeşitli sanallaştırma ortamları Virtual box ve benzerlerine alternatif uygulama
 geliştirme ve yayınlama alt yapı aracıdır.
 
-> Not: bu makalede Docker ve Docker teknojisinden ziyade. Docker biz geliştiriciler için ne ifade ediyor ? Neden Docker kullanalım ? Dockerı nasıl kullanırız vb. gibi sorulara cevap arıyoruz. Docker ve Docker teknolojisi hakkında detaylı bilgi için gökhan şengünün [websitesini](https://gokhansengun.com){:target="_blank"} ziyaret edebilirsiniz.
+> Not: bu makalede Docker ve Docker teknojisinden ziyade. Docker biz geliştiriciler için ne ifade ediyor ? Neden Docker kullanalım ? Dockerı nasıl kullanırız vb. gibi sorulara cevap arıyoruz. Docker ve Docker teknolojisi hakkında detaylı bilgi için Gökhan Şengünün [websitesini](https://gokhansengun.com){:target="_blank"} ziyaret edebilirsiniz.
 
 ---
 
@@ -25,7 +29,7 @@ Dockerfile geliştirdiğimiz uygulamamızın / yazılımın gerekliklerinin ( ö
 
 #### Docker Image Nedir ?
 
-Docker image, Dockerfile da tanımladığımız gerekliliklerin  görüntüsüdür.
+Docker image, Dockerfile da tanımladığımız gerekliliklerin kurulup hazırlanmış görüntüsüdür.
 
 ---
 
@@ -160,5 +164,5 @@ Herhangi bir sorun ile karşılaşmadıysanız aşağıda ki çıktıyı almalı
 
 Bu makalede **Docker**, **Dockerfile**, **Docker Image**, **Docker Container** nedir ? Nasıl
 çalışır ? Öğrenmiş olduk. Basit bir örnekle öğrendiklerimizi uygulamaya dökerek pekiştirdik. 
-4 bölümlük " yeni nesil geliştirme ortamı " serisinin 1. bölümünü tamamlamış olduk.
+4 bölümlük " yeni nesil geliştirme ortamı " serisinin 1. bölümünü tamamladık.
 Bir sonraki bölümde **Docker Compose** ile oluşturduğumuz konteynerları yönetme konusuna değineceğiz.
