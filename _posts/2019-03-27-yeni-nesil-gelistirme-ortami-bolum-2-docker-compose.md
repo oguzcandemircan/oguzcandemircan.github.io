@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Yeni Nesil Geliştirme Ortamı Bölüm 2: Docker Compose"
-description: 'Yeni Nesil Geliştirme Ortamı serimizin 2.bölümüne hoş geldiniz. 2. bölümde  " Docker Compose " konusuna değineceğiz.
-Docker Compose Nedir ? DockerHub Nedir ? docker-compose.yml nedir ? Docker Compose Nasıl çalışır ? vb. sorulara cevap arıyacağız.'
+description: "Yeni Nesil Geliştirme Ortamı serimizin 2.bölümüne hoş geldiniz. 2. bölümde Docker Compose konusuna değineceğiz.
+Docker Compose Nedir ? DockerHub Nedir ? docker-compose.yml nedir ? Docker Compose Nasıl çalışır ? vb. sorulara cevap arıyacağız."
 keywords: docker-compose, docker,  yeni nesil geliştirme ortami, geliştirme ortamı
 image: /assets/posts/2/docker-compose.jpg
 tags: [docker compose, docker,  yeni nesil geliştirme ortami, geliştirme ortamı, yazılım, software]
@@ -186,4 +186,4 @@ oluşturduğumuz.
 ### Sonuç
 
 Docker Compose, docker-compose.yml, DockerHub, Nedir ? öğrenmiş olduk. Öğrendiklerimizide basit bir örnekle pekiştirdik.
-"Yeni nesil geliştirme ortamı " serimizin 2.bölümünü tamamladık. 3. bölümde " Laradock " konusuna değineceğiz.
+"Yeni nesil geliştirme ortamı " serimizin 2.bölümünü tamamladık. 3. bölümde " **Laradock** " konusuna değineceğiz.
