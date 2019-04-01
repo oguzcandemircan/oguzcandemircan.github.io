@@ -1,1 +1,0 @@
-"# oguzcandemircan.github.io" 
