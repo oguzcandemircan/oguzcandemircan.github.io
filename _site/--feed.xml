@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oğuzcan Demircan</title>
+    <description>laravel, php, vuejs, javascript vb. programlama dilleri, frameworkleri, teknolojileri ve diğer çeşitli alanlar hakkındaki bilgi, düşünce ve deneyimlerimi içeren blog.</description>
+    <author>Oğuzcan Demircan</author>
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <id>http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-2-docker-compose</id>
+        <title>Yeni Nesil Geliştirme Ortamı Bölüm 2: Docker Compose</title>
+        <creator>Oğuzcan Demircan</creator>
+        <description>
+          Yeni Nesil Geliştirme Ortamı serimizin 2.bölümüne hoş geldiniz. 2. bölümde ” Docker Compose “ konusuna değineceğiz. Docker Compose Nedir ? DockerHub Nedir ? docker-compose.yml nedir ? Docker Compose Nasıl çalışır ? vb. sorulara cevap arıyacağız. Docker Compose Nedir ? Docker Composer, Docker Konteynerların (Container) tek bir yml uzantılı dosya ile...
+        </description>
+        <pubDate>Wed, 27 Mar 2019 00:00:00 +0300</pubDate>
+        <published>Wed, 27 Mar 2019 00:00:00 +0300</published>
+        <link>http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-2-docker-compose</link>
+        <guid isPermaLink="true">http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-2-docker-compose</guid>
+      </item>
+    
+      <item>
+        <id>http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-1-docker</id>
+        <title>Yeni nesil geliştirme ortamı Bölüm 1: Docker</title>
+        <creator>Oğuzcan Demircan</creator>
+        <description>
+          Yeni nesil geliştirme ortamı adı altında başladığımız, 4.bölümlük yazı dizisinin 1. bölümüne hoş geldiniz. Bu bölümde Docker, Dockerfile, Docker Container(Konteyner), Docker Image(imaj), nedir ? Docker biz geliştiriciler için ne ifade ediyor ? Neden Docker kullanalım ? Dockerı nasıl kullanırız vb. gibi sorulara cevap arıyacağız. Docker Nedir ? Docker çeşitli sanallaştırma...
+        </description>
+        <pubDate>Wed, 27 Mar 2019 00:00:00 +0300</pubDate>
+        <published>Wed, 27 Mar 2019 00:00:00 +0300</published>
+        <link>http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-1-docker</link>
+        <guid isPermaLink="true">http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-1-docker</guid>
+      </item>
+    
+  </channel>
+</rss>

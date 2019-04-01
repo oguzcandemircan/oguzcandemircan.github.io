@@ -3,7 +3,7 @@
         <div class="overlay"></div>
         <div class="col-12">
             <a href="{{ site.url }}">
-                <img class="profile-img" src="{{ site.url }}/{{ site.author.image }}" alt="Oğuzcan Demircan" >
+                <img class="profile-img" src="{{ site.url }}{{ site.author.image }}" alt="Oğuzcan Demircan" >
             </a>
         </div>
         <h4 class="mt-1 b-black"><a href="{{ site.url }}">{{ site.author.name }}</a></h4>
@@ -11,15 +11,14 @@
         <h6 class="b-black"><a href="{{ site.url }}"> {{ site.author.title }} </a></h6>
         <div class="col-12"></div>
         <div class="social-media b-black">
-                <a target="_blank" title="Github" href="https://github.com/{{ site.social-network-links.github }}"><i class="fab fa-github"></i></a>
-                <a target="_blank" title="Twitter" href="https://twitter.com/{{ site.social-network-links.twitter }}"><i class="fab fa-twitter"></i></a>
-                <a target="_blank" title="Medium" href="https://medium.com/@{{ site.social-network-links.medium }}"><i class="fab fa-medium"></i></a>
-                <a target="_blank" title="Linkedin" href="https://www.linkedin.com/in/@{{ site.social-network-links.medium }}"><i class="fab fa-linkedin"></i></a>
-                <!-- <a target="_blank" title="Gitlab" href="https://gitlab.com/{{ site.social-network-links.gitlab }}"><i class="fab fa-gitlab"></i></a> -->
-                <!-- <a target="_blank" title="Email" href="mailto:{{ site.social-network-links.medium }}"><i class="fas fa-envelope"></i></a> -->
+                <a target="_blank" title="Github" href="https://github.com/{{ site.author.github }}"><i class="fab fa-github"></i></a>
+                <a target="_blank" title="Twitter" href="https://twitter.com/{{ site.author.twitter }}"><i class="fab fa-twitter"></i></a>
+                <a target="_blank" title="Medium" href="https://medium.com/@{{ site.author.medium }}"><i class="fab fa-medium"></i></a>
+                <a target="_blank" title="Linkedin" href="https://www.linkedin.com/in/{{ site.author.medium }}"><i class="fab fa-linkedin"></i></a>
+                <a target="_blank" title="Email - {{ site.author.email }}" href="mailto:{{ site.author.email }}"><i class="fas fa-envelope"></i></a>
+                <a target="_blank" title="Rss" href="/feed.xml"><i class="fas fa-rss"></i></a>
+                <!-- <a target="_blank" title="Gitlab" href="https://gitlab.com/{{ site.author.gitlab }}"><i class="fab fa-gitlab"></i></a> -->
         </div>
-        <div class="col-12 copyright">
-            {{ site.footer.text }}
-        </div>
+        <div class="col-12 copyright d-none d-lg-block d-md-block d-sm-block">{{ site.footer.text }}</div>
     </div>
 </div>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Yeni Nesil Geliştirme Ortamı Bölüm 2: Docker Compose - Oğuzcan Demircan</title>
+    
+    <meta name="google-site-verification" content="wzOppR9AsH2034ojvcyoE981gi2ux8R27lO4wJXY6pk" />
+
+    <meta name="author" content="Oğuzcan Demircan" />
+    <meta name="owner" content="Oğuzcan Demircan" />
+    <meta name="generator" content="Oğuzcan Demircan">
+    
+    
+    <meta name="description" content="Yeni Nesil Geliştirme Ortamı serimizin 2.bölümüne hoş geldiniz. 2. bölümde Docker Compose konusuna değineceğiz. Docker Compose Nedir ? DockerHub Nedir ? docker-compose.yml nedir ? Docker Compose Nasıl çalışır ? vb. sorulara cevap arıyacağız.">
+    
+    
+    <meta name="keywords" content="docker-compose, docker,  yeni nesil geliştirme ortami, geliştirme ortamı">
+    
+
+    <!--  Style CSS -->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+
+    <!-- FEED XML -->
+    <link rel="alternate" type="application/rss+xml" title="Oğuzcan Demircan" href="/feed.xml" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <script async src="/assets/js/custom.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137191559-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137191559-1');
+    </script>
+
+</head>
+<body>
+<main class="container-fluid h-100">
+    
+    <div class="row" id="wrapper">
+       <div id="sidebar" class="col-lg-3 hidden-md-down">
+    <div class="row justify-content-center text-center mt-4">
+        <div class="overlay"></div>
+        <div class="col-12">
+            <a href="http://localhost:4000">
+                <img class="profile-img" src="http://localhost:4000/assets/images/oguzcan-demircan.jpg" alt="Oğuzcan Demircan" >
+            </a>
+        </div>
+        <h4 class="mt-1 b-black"><a href="http://localhost:4000">Oğuzcan Demircan</a></h4>
+        <div class="col-12"></div>
+        <h6 class="b-black"><a href="http://localhost:4000"> Software Developer </a></h6>
+        <div class="col-12"></div>
+        <div class="social-media b-black">
+                <a target="_blank" title="Github" href="https://github.com/oguzcandemircan"><i class="fab fa-github"></i></a>
+                <a target="_blank" title="Twitter" href="https://twitter.com/oguzcandemircan"><i class="fab fa-twitter"></i></a>
+                <a target="_blank" title="Medium" href="https://medium.com/@oguzcandemircan"><i class="fab fa-medium"></i></a>
+                <a target="_blank" title="Linkedin" href="https://www.linkedin.com/in/oguzcandemircan"><i class="fab fa-linkedin"></i></a>
+                <a target="_blank" title="Email - oguzcandemircan@gmail.com" href="mailto:oguzcandemircan@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a target="_blank" title="Rss" href="/feed.xml"><i class="fas fa-rss"></i></a>
+                <!-- <a target="_blank" title="Gitlab" href="https://gitlab.com/oguzcandemircan"><i class="fab fa-gitlab"></i></a> -->
+        </div>
+        <div class="col-12 copyright d-none d-lg-block d-md-block d-sm-block">© 2019 Oğuzcan Demircan All Rights Reserved</div>
+    </div>
+</div>
+        <div id="content" class="col-lg-9 offset-lg-3">
+            <div class="row justify-content-center justify-content-lg-start">
+                <div class="col-lg-6 col-sm-10 left-space">
+                    <div class="sub-nav">
+    
+     
+        
+            <a href="/" id="anasayfa" >anasayfa</a>
+        
+    
+     
+        
+            <a href="/makaleler" id="makaleler" >makaleler</a>
+        
+    
+     
+        
+            <a href="/etiketler" id="etiketler" >etiketler</a>
+        
+    
+     
+        
+            <a href="/hakkimda" id="Hakkımda" >Hakkımda</a>
+        
+    
+</div>
+
+<!-- <br>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">home</a></li>
+        
+        <li class="breadcrumb-item"><a href="#">docker</a></li>
+        
+        <li class="breadcrumb-item active" aria-current="page">yeni nesil geliştirme ortamı bölüm 2: docker compose</li>
+    </ol>
+</nav> -->
+                    <article class="post-detail mt-4" id="article">
+    <h2>Yeni Nesil Geliştirme Ortamı Bölüm 2: Docker Compose</h2>
+    <span class="time" id="time"></span>
+    <img src="/assets/posts/2/docker-compose.jpg" alt="Yeni Nesil Geliştirme Ortamı Bölüm 2: Docker Compose" />
+    <div class="content">
+        <p><strong>Yeni Nesil Geliştirme Ortamı</strong> serimizin 2.bölümüne hoş geldiniz. 2. bölümde  <br />  <strong>” Docker Compose “</strong> konusuna değineceğiz.
+Docker Compose Nedir ? DockerHub Nedir ? docker-compose.yml nedir ? Docker Compose Nasıl çalışır ? vb. sorulara cevap arıyacağız.</p>
+
+<hr />
+
+<h4 id="docker-compose-nedir-">Docker Compose Nedir ?</h4>
+<p>Docker Composer, Docker Konteynerların (Container) tek bir yml uzantılı dosya ile yönetmemize olanak sağlayan orkestrasyon aracıdır.</p>
+
+<hr />
+
+<h4 id="dockerhub-nedir-">DockerHub Nedir ?</h4>
+<p>Github benzeri Docker imajlarının (Dockerfile) saklandığı uzak sunucudur.
+<code class="highlighter-rouge">docker pull docker_hub_kullanıcı_adı/docker_imaj_adı</code> komutu ile uzaktaki imajı kendi bilgisayarımıza çekebiliriz.</p>
+
+<hr />
+
+<h4 id="docker-compose-nasıl-çalışır-">Docker Compose Nasıl Çalışır ?</h4>
+<p><strong>Docker Compose</strong> çalışmak için bir adet “ <strong>docker-compose.yml</strong> “ ayar (config) dosyasına ihtiyaç duyar. Docker Compose “ docker-compose.yml “ dosyasında tanımlanan servisleri (Container) <code class="highlighter-rouge">docker-compose build</code> komutu ile imajını alır. <code class="highlighter-rouge">docker-compose up</code> komutu ile de Docker Container içersine koyar çalıştır. <code class="highlighter-rouge">docker-compose stop</code> komutu ile çalışan servisleri durdurabilir veya <code class="highlighter-rouge">docker-compose down</code> ile silebiliriz.</p>
+
+<p>Hali hazırda çalışan servisleri görüntülemek için <code class="highlighter-rouge">docker-compose ps</code> komutunu kullanabiliriz.</p>
+
+<hr />
+
+<h4 id="basit-bir-örnek-yapalım">Basit Bir Örnek Yapalım</h4>
+
+<p>Linux kullandığım için Linux komut satırı (terminal) üzerinden gideceğim. Terminal deyince hemen korkmanıza gerek yok basit klasör / dosya oluştur vb. işlemleri yapacağız. Siz isterseniz sağtık klasör/dosya oluştur vs. ile de yapabilirsiniz.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># docker-compose-example ismiyle bir klasör oluşturuyoruz.</span>
+<span class="nb">mkdir </span>docker-compose-example
+
+<span class="c"># docker-compose-example klasörünün içerisine giriyoruz.</span>
+<span class="nb">cd </span>docker-compose-example
+
+<span class="c"># musul ismiyle klasör oluşturuyoruz.</span>
+<span class="nb">mkdir </span>musul
+
+<span class="c"># musul klasörünün içerisine index.html oluşturuyoruz.</span>
+<span class="nb">touch </span>musul/index.html
+
+<span class="c"># musul klasörünün içerisinede ki index.html içerisine " &lt;h1&gt;Musul&lt;/h1&gt; " satırını ekliyoruz.</span>
+<span class="nb">echo</span> <span class="s2">"&lt;h1&gt;Welcome Musul&lt;/h1&gt;"</span> <span class="o">&gt;</span> musul/index.html
+
+<span class="c"># kerkuk ismiyle klasör oluşturuyoruz.</span>
+<span class="nb">mkdir </span>kerkuk
+
+<span class="c"># kerkuk klasörünün içerisine index.html oluşturuyoruz.</span>
+<span class="nb">touch </span>kerkuk/index.html
+
+<span class="c"># kerkük klasörünün içerisinede ki index.html içerisine " &lt;h1&gt;Kerkuk&lt;/h1&gt; " satırını ekliyoruz.</span>
+<span class="nb">echo</span> <span class="s2">"&lt;h1&gt;Welcome Kerkuk&lt;/h1&gt;"</span> <span class="o">&gt;</span> kerkuk/index.html
+
+<span class="c"># docker-compose.yml ismiyle bir dosya oluşturuyouz.</span>
+<span class="nb">touch </span>docker-compose.yml
+
+<span class="c"># oluşturduğumuz dosyanın içerisini dolduruyoruz.</span>
+<span class="nb">echo</span> <span class="s1">'version: "3"
+services:
+    website1:
+        image: nginx
+        ports:
+        - "82:80"
+        volumes:
+        - ./musul:/usr/share/nginx/html
+    website2:
+        image: nginx
+        ports:
+        - "83:80"
+        volumes:
+        - ./kerkuk:/usr/share/nginx/html
+    database:
+        image: mysql
+        restart: always
+        environment:
+            - MYSQL_DATABASE=veri_tabanı_adı
+            - MYSQL_ROOT_PASSWORD=root_sifresi
+            - MYSQL_USER=mysql_kullanicisi
+            - MYSQL_PASSWORD=mysql_kullanici_sifresi
+        ports:
+            - "8989:3306"'</span> <span class="o">&gt;</span> docker-compose.yml
+
+</code></pre></div></div>
+
+<!-- **" docker-compose.yml "** ismiyle bir dosya oluşturup içerisine aşağıdaki komutları yazalım. -->
+
+<p>Tüm adımları eksiksiz uyguladıysak  <strong>” docker-compose.yml “</strong> dosyamız aşığda ki gibi görünmelidir.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3'</span>
+<span class="na">services</span><span class="pi">:</span>
+    <span class="na">website1</span><span class="pi">:</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s2">"</span><span class="s">82:80"</span>
+        <span class="na">volumes</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./musul:/usr/share/nginx/html</span>
+    <span class="na">website2</span><span class="pi">:</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s2">"</span><span class="s">83:80"</span>
+        <span class="na">volumes</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./kerkuk:/usr/share/nginx/html</span>
+    <span class="na">database</span><span class="pi">:</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">mysql</span>
+        <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+        <span class="na">environment</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">MYSQL_DATABASE=veri_tabanı_adı</span>
+            <span class="pi">-</span> <span class="s">MYSQL_ROOT_PASSWORD=root_sifresi</span>
+            <span class="pi">-</span> <span class="s">MYSQL_USER=mysql_kullanicisi</span>
+            <span class="pi">-</span> <span class="s">MYSQL_PASSWORD=mysql_kullanici_sifresi</span>
+        <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s2">"</span><span class="s">8989:3306"</span>
+</code></pre></div></div>
+<p>Dosyanın içeriğini inceliyelim.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Değer</th>
+      <th>Açıklaması</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version</td>
+      <td>adından da anlaşılacağı üzere docker-compose version numaramız</td>
+    </tr>
+    <tr>
+      <td>services</td>
+      <td>kullanacağımız servislerin tanımlandığı alan.</td>
+    </tr>
+    <tr>
+      <td>website1</td>
+      <td>servisimizin adını tanımladığımız alan.</td>
+    </tr>
+    <tr>
+      <td>website2</td>
+      <td>diğer bir servisimizin adı.</td>
+    </tr>
+    <tr>
+      <td>mysql</td>
+      <td>bir başka servisimizin adı.</td>
+    </tr>
+    <tr>
+      <td>image</td>
+      <td>servizimizin kullanacağı imajı(image) adı.</td>
+    </tr>
+    <tr>
+      <td>volumes</td>
+      <td>Docker Konteyner ile kendi bilgisayarımızda ki klasörleri eşitlediğimiz alan</td>
+    </tr>
+    <tr>
+      <td>ports</td>
+      <td>servisimizin dışarıya açılan portun kendi bilgisayarımızda hangi porta karşılık geleceğini tanımladığımız alan.</td>
+    </tr>
+    <tr>
+      <td>restart</td>
+      <td>servisimiz herhangi bir sebepten ötürü durursa ne sıklıkta yeniden başlamayı deniyeceğini belirttiğimiz alan. örnek: “ always “ her zaman</td>
+    </tr>
+    <tr>
+      <td>environment</td>
+      <td>servisimizin ortam değişkenlerini tanımladığımız alan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>daha iyi anlaşılması için bir kaç kısmı daha açıklayalım.</p>
+
+<ul>
+  <li>
+    <p><strong>Volume</strong> :
+<code class="highlighter-rouge">./musul:/usr/share/nginx/html </code>  ifadesi ile bilgisayarımızda yer alan “musul” klasörünü servisimizin içerisinde ki “/usr/share/nginx/html” klasörüne eşitlemiş oluyoruz.</p>
+  </li>
+  <li>
+    <p><strong>Ports</strong> :
+docker-compose.yml da yer alan <code class="highlighter-rouge">82:80</code> ifadesi ile servisimizin dışarıya açık olan “80” portunu bilgisayarımzda ki “82” portuna eşitlemiş oluyoruz.
+daha sonra tarayıcımızdan http://localhost:82 yazarak servisimize erişebiliriz.</p>
+  </li>
+  <li>
+    <p><strong>environment</strong> : 
+<code class="highlighter-rouge">MYSQL_DATABASE=veri_tabanı_adı</code> ifadesi ile servisimizin içerisinde yer alan <code class="highlighter-rouge">MYSQL_DATABASE</code> değişkenini “veri_tabanı_adı” olarak ayarlamış oluyoruz.</p>
+  </li>
+</ul>
+
+<p><code class="highlighter-rouge">docker-compose up -d</code> komut ile servislerimizi ayağa kaldıralım.
+<!-- herhangi bir sorun ile karşılaşmadıysanız aşağıdakine benzer bir çıktı almalısınız. -->
+<!-- ![docker compose up komutu çıktı görüntüsü](/assets/posts/2/docker-compose-up.jpg) --></p>
+
+<p>Tarayıcıdan önce http://localhost:82
+<img src="/assets/posts/2/ornek-musul.jpg" alt="docker compose - ornek musul" />
+daha sonra http://localhost:83 adresine gidelim.
+<img src="/assets/posts/2/ornek-kerkuk.jpg" alt="docker compose - ornek kerkuk" /></p>
+
+<p>Yukarıda ki çıktıları aldıysanız doğru yoldasınız demektir.</p>
+
+<p><code class="highlighter-rouge">docker-compose exec {service_adı} {komut}</code> komutu ile servislerimizin içerisinde komut çalıştırabilmekteyiz. Örneğin :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose <span class="nb">exec </span>database mysql <span class="nt">-uroot</span> <span class="nt">-proot_sifresi</span>
+</code></pre></div></div>
+<p>çıktı:
+<img src="/assets/posts/2/docker-compose-database-connect.jpg" alt="docker compose exec örneği" /></p>
+
+<p>veri tabanında ki tabloları görüntüleyelim.</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">show</span> <span class="n">databases</span><span class="p">;</span>
+</code></pre></div></div>
+<p>çıktı:
+<img src="/assets/posts/2/docker-compose-mysql-show-database.jpg" alt="docker compose - show database" /></p>
+
+<p>oluşturduğumuz.</p>
+
+<p>“<strong>veri_tabanı_adi</strong>” adlı veri tabanını (database) görmekteyiz.</p>
+
+<hr />
+
+<h3 id="sonuç">Sonuç</h3>
+
+<p>Docker Compose, docker-compose.yml, DockerHub, Nedir ? öğrenmiş olduk. Öğrendiklerimizide basit bir örnekle pekiştirdik.
+“Yeni nesil geliştirme ortamı “ serimizin 2.bölümünü tamamladık. 3. bölümde “ <strong>Laradock</strong> “ konusuna değineceğiz.</p>
+
+    </div>
+    <div class="tags">
+        <ul>
+            
+            <li><a href="http://localhost:4000/etiketler#docker compose" title="docker compose"><span>docker compose</span></a></li>
+            
+            <li><a href="http://localhost:4000/etiketler#docker" title="docker"><span>docker</span></a></li>
+            
+            <li><a href="http://localhost:4000/etiketler#yeni nesil geliştirme ortami" title="yeni nesil geliştirme ortami"><span>yeni nesil geliştirme ortami</span></a></li>
+            
+            <li><a href="http://localhost:4000/etiketler#geliştirme ortamı" title="geliştirme ortamı"><span>geliştirme ortamı</span></a></li>
+            
+            <li><a href="http://localhost:4000/etiketler#yazılım" title="yazılım"><span>yazılım</span></a></li>
+            
+            <li><a href="http://localhost:4000/etiketler#software" title="software"><span>software</span></a></li>
+            
+        </ul>
+    </div>
+    <div class="date">
+        <span title="27/03/2019">
+            27
+            
+            Mart
+            2019
+        </span>
+    </div>
+    <div class="post-navigation hr row">
+        
+            <a title="" class="prev col" href="/yeni-nesil-gelistirme-ortami-bolum-1-docker">&laquo; Yeni nesil geliştirme ortamı Bölüm 1: Docker</a>
+        
+        
+    </div>
+    <div class="disqus-comments"> <div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = "http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-2-docker-compose";  
+this.page.identifier = "Yeni Nesil Geliştirme Ortamı Bölüm 2: Docker Compose";
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://oguzcandemircan.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </div>
+</article>
+
+<script>
+    readTime('article', 'time');
+</script>
+                    <div class="mt-4">© 2019 Oğuzcan Demircan All Rights Reserved</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

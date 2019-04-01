@@ -20,14 +20,6 @@ navs:
 - name: Hakkımda
   url: /hakkimda
 
-social-network-links:
-  twitter: oguzcandemircan
-  github: oguzcandemircan
-  gitlab: oguzcandemircan
-  medium: oguzcandemircan
-  linkedin: oguzcandemircan
-  email: demircanoguzcan@gmail.com
-
 disqus:
   active: true
   username: oguzcandemircan
@@ -42,14 +34,22 @@ default_language: tr
 
 author: 
   name: Oğuzcan Demircan
-  image: /assets/images/oguzcan-demircan.jpg
   title: Software Developer
+  image: /assets/images/oguzcan-demircan.jpg
+  email: oguzcandemircan@gmail.com
+  twitter: oguzcandemircan
+  github: oguzcandemircan
+  gitlab: oguzcandemircan
+  medium: oguzcandemircan
+  linkedin: oguzcandemircan
+
 
 footer:
   text: © 2019 Oğuzcan Demircan All Rights Reserved
 
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
 
 
 google:

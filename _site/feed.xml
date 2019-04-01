@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-01T14:04:16+03:00</updated><id>http://localhost:4000/feed.xml</id><author><name>Oğuzcan Demircan</name><email>oguzcandemircan@gmail.com</email></author><entry><title type="html">Yeni nesil geliştirme ortamı Bölüm 1: Docker</title><link href="http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-1-docker" rel="alternate" type="text/html" title="Yeni nesil geliştirme ortamı Bölüm 1: Docker" /><published>2019-03-27T00:00:00+03:00</published><updated>2019-03-27T00:00:00+03:00</updated><id>http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-1-docker</id><content type="html" xml:base="http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-1-docker">&lt;p&gt;&lt;strong&gt;Yeni nesil geliştirme ortamı&lt;/strong&gt; adı altında başladığımız, 4.bölümlük yazı dizisinin 1. bölümüne hoş geldiniz.&lt;/p&gt;
+
+&lt;p&gt;Bu bölümde Docker, Dockerfile, Docker Container(Konteyner), Docker Image(imaj), nedir ? Docker biz geliştiriciler için ne ifade ediyor ? Neden Docker kullanalım ? Dockerı nasıl kullanırız vb. gibi sorulara cevap arıyacağız.&lt;/p&gt;
+
+&lt;h4 id=&quot;docker-nedir-&quot;&gt;Docker Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;Docker çeşitli sanallaştırma ortamları Virtual box ve benzerlerine alternatif uygulama
+geliştirme ve yayınlama alt yapı aracıdır.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Not: bu makalede Docker ve Docker teknojisinden ziyade. Docker biz geliştiriciler için ne ifade ediyor ? Neden Docker kullanalım ? Dockerı nasıl kullanırız vb. gibi sorulara cevap arıyoruz. Docker ve Docker teknolojisi hakkında detaylı bilgi için Gökhan Şengünün &lt;a href=&quot;https://gokhansengun.com&quot; target=&quot;_blank&quot;&gt;websitesini&lt;/a&gt; ziyaret edebilirsiniz.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;dockerfile-nedir-&quot;&gt;Dockerfile Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;Dockerfile geliştirdiğimiz uygulamamızın / yazılımın gerekliklerinin ( örneğin: nginx apache mysql vb.) tanımlandığı dosyadır.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;docker-image-nedir-&quot;&gt;Docker Image Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;Docker image, Dockerfile da tanımladığımız gerekliliklerin kurulup hazırlanmış görüntüsüdür.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;docker-container-nedir-&quot;&gt;Docker Container Nedir ?&lt;/h4&gt;
+
+&lt;p&gt;Docker Container, Docker imajlarımızın (image) çalıştırıldığı alandır.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;peki-docker-bunu-nasıl-yapıyor---nasıl-çalışıyor-&quot;&gt;Peki Docker Bunu Nasıl Yapıyor  / Nasıl Çalışıyor ?&lt;/h4&gt;
+
+&lt;p&gt;Docker, Dockerfile da tanımlanan gereklilikleri &lt;code class=&quot;highlighter-rouge&quot;&gt;docker build .&lt;/code&gt; komutu ile
+yeni bir Docker İmajı oluşturup içerisine,
+ Dockerfile da tanımladığımız komutları tek tek çalıştırıp, gerekliliklerin kurulumlarını gerçekleştiriyor. 
+ Sistemin çalışır halde olduğunu onayladıktan sonra
+sistemin yedeğini yani imajını (image) alıp saklıyor. Hazırlanıp saklanan imajları&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;docker images&lt;/code&gt; komutu ile görüntüleyebiliriz.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;docker run {çalıştırmak_istediğimiz_imaj_idsi}&lt;/code&gt; komut ile de imajını aldığımız sistemleri Docker Konteynerına koyup çalıştırıyor.
+Hali hazırda çalışan imajları 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;docker ps&lt;/code&gt; komutu ile görüntüleyebiliriz.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;docker ps -a&lt;/code&gt; komutu ile daha önce çalıştırılmış fakat şuanda çalışmayan konteynerları görüntüleyebiliriz.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;biz-geliştiriciler-i̇çin-docker-ne-anlam-i̇fade-ediyor-&quot;&gt;Biz Geliştiriciler İçin Docker Ne Anlam İfade Ediyor ?&lt;/h3&gt;
+
+&lt;p&gt;Geliştirdiğimiz herhangi bir uygulamayı yayına alırken kendi bilgisayarımızda çalışırken
+sunucuda çalışmadığına en az 1 kere şahit olmuşuzdur. Docker sayesinde “ benim bilgisayarımda çalışıyordu “ sendromundan kurtuluyoruz. :)
+Çünkü Docker sunucu ve çalışma ortamınızı eşitliyor. Kulağa hoş geliyor değil mi ?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;docker-kurulumu&quot;&gt;Docker Kurulumu&lt;/h3&gt;
+
+&lt;p&gt;Kurulumu Linux üzerinden anlatacağım diğer işletim sistemleri için docker dökümantasyonunda ki kurulum adımlarını takip edebilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.docker.com/docker-for-windows/install/&quot;&gt;Windows&lt;/a&gt;   - &lt;a href=&quot;https://docs.docker.com/docker-for-mac/install/&quot;&gt;Mac&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Docker kurulumu:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# https://docs.docker.com/install/linux/docker-ce/ubuntu/&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;apt-transport-https ca-certificates curl software-properties-common
+curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://download.docker.com/linux/ubuntu/gpg | &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key add -
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;add-apt-repository &lt;span class=&quot;s2&quot;&gt;&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;docker-ce
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Docker Compose kurulumu:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# https://docs.docker.com/compose/install/&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; https://github.com/docker/compose/releases/download/1.20.0/docker-compose-&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;uname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;-&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;uname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; /usr/local/bin/docker-compose
+&lt;span class=&quot;nb&quot;&gt;sudo chmod&lt;/span&gt; +x /usr/local/bin/docker-compose
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Herhangi bir izin problemiyle karşılaşmamak için. “docker” kullanıcı grubu oluşturuyoruz ve mevcut kullanıcımızı oluşturduğumuz “docker” kullanıcı grubuna atıyoruz.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# https://docs.docker.com/install/linux/linux-postinstall/&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;groupadd docker
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-aG&lt;/span&gt; docker &lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;basit-bir-örnek-yapalım&quot;&gt;Basit Bir Örnek Yapalım&lt;/h3&gt;
+
+&lt;p&gt;Linux kullandığım için Linux komut satırı ( terminal ) üzerinden devam edeceğim.&lt;/p&gt;
+
+&lt;p&gt;İlk önce bir klasör oluşturalım ve içerisine girelim.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#docker-example adında klasör oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;docker-example
+
+&lt;span class=&quot;c&quot;&gt;#docker-example klasörünün içerisine giriyoruz&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;docker-example
+
+&lt;span class=&quot;c&quot;&gt;#Dockerfile ismiyle dosya oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;Dockerfile
+
+&lt;span class=&quot;c&quot;&gt;#www adında klasör oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;www 
+
+&lt;span class=&quot;c&quot;&gt;#oluşturduğumuz www klasörünün içerisine &quot; index.html&quot; adında bir dosya oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;www/index.html
+
+&lt;span class=&quot;c&quot;&gt;# bir üst satırda oluşturduğumuz index.html içerisine ' &amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt;' satırını ekliyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;h1&amp;gt;Hello World&amp;lt;/h1&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; www/index.html 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Dockerfile oluşturalım. Ve içerisine aşağıdaki komutları yazalım.&lt;/p&gt;
+
+&lt;div class=&quot;language-dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# nginx imajını referans alıyoruz.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; nginx &lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# www klasörümüzü Docker konteyner içerisinde ki /usr/share/nginx/html içerisine kopyalıyoruz.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; /www /usr/share/nginx/html&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Docker konteynerımızın içerisindeki 80 portunu dışarıya açıyoruz.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 80&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Dockerfile ile görüntü oluşturalım. Daha rahat kullanım için etiketliyelim. Ve görüntünün oluşup oluşmadığını kontrol edelim.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Oluşturduğumuz Dockerfile ile görüntü(image) alıyoruz / oluşturuyoruz.&lt;/span&gt;
+docker build &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; oguzcandemircan/nginx:1.0 &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; 
+
+&lt;span class=&quot;c&quot;&gt;#docker ps komutu ile görüntümüzün(image) oluşup oluşmadığını kontrol ediyoruz.&lt;/span&gt;
+docker ps
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Aşığıdakine benzer bir çıktı almalısınız.
+&lt;img src=&quot;/assets/posts/1/docker-ps.png&quot; alt=&quot;docker ps çıktısı&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Oluşturduğumuz imajı çalıştırıyoruz.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Oluşturduğumuz imajı(image) çalıştırıyoruz.&lt;/span&gt;
+docker run &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 81:80 oguzcandemircan/nginx:1.0 
+
+&lt;span class=&quot;c&quot;&gt;#curl istek atıyoruz.&lt;/span&gt;
+curl http://localhost:81 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;curl yüklü değilse Herhangi bir tarayıcıdan http://localhost:81 adresine giderek aynı işlemi gerçekleştirebilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;Herhangi bir sorun ile karşılaşmadıysanız aşağıda ki çıktıyı almalısınız.
+&lt;img src=&quot;/assets/posts/1/curl.png&quot; alt=&quot;docker - curl istek çıktısı&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;sonuç&quot;&gt;Sonuç&lt;/h3&gt;
+
+&lt;p&gt;Bu makalede &lt;strong&gt;Docker&lt;/strong&gt;, &lt;strong&gt;Dockerfile&lt;/strong&gt;, &lt;strong&gt;Docker Image&lt;/strong&gt;, &lt;strong&gt;Docker Container&lt;/strong&gt; nedir ? Nasıl
+çalışır ? Öğrenmiş olduk. Basit bir örnekle öğrendiklerimizi uygulamaya dökerek pekiştirdik. 
+4 bölümlük “ yeni nesil geliştirme ortamı “ serisinin 1. bölümünü tamamladık.
+Bir sonraki bölümde &lt;strong&gt;Docker Compose&lt;/strong&gt; ile oluşturduğumuz konteynerları yönetme konusuna değineceğiz.&lt;/p&gt;</content><author><name>Oğuzcan Demircan</name><email>oguzcandemircan@gmail.com</email></author><category term="docker" /><category term="docker container" /><category term="docker image" /><category term="dockerfile" /><category term="geliştirme ortamı" /><category term="yazılım" /><category term="software" /><summary type="html">Yeni nesil geliştirme ortamı adı altında başladığımız, 4.bölümlük yazı dizisinin 1. bölümüne hoş geldiniz.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/posts/1/docker.jpg" /></entry><entry><title type="html">Yeni Nesil Geliştirme Ortamı Bölüm 2: Docker Compose</title><link href="http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-2-docker-compose" rel="alternate" type="text/html" title="Yeni Nesil Geliştirme Ortamı Bölüm 2: Docker Compose" /><published>2019-03-27T00:00:00+03:00</published><updated>2019-03-27T00:00:00+03:00</updated><id>http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-2-docker-compose</id><content type="html" xml:base="http://localhost:4000/yeni-nesil-gelistirme-ortami-bolum-2-docker-compose">&lt;p&gt;&lt;strong&gt;Yeni Nesil Geliştirme Ortamı&lt;/strong&gt; serimizin 2.bölümüne hoş geldiniz. 2. bölümde  &lt;br /&gt;  &lt;strong&gt;” Docker Compose “&lt;/strong&gt; konusuna değineceğiz.
+Docker Compose Nedir ? DockerHub Nedir ? docker-compose.yml nedir ? Docker Compose Nasıl çalışır ? vb. sorulara cevap arıyacağız.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;docker-compose-nedir-&quot;&gt;Docker Compose Nedir ?&lt;/h4&gt;
+&lt;p&gt;Docker Composer, Docker Konteynerların (Container) tek bir yml uzantılı dosya ile yönetmemize olanak sağlayan orkestrasyon aracıdır.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;dockerhub-nedir-&quot;&gt;DockerHub Nedir ?&lt;/h4&gt;
+&lt;p&gt;Github benzeri Docker imajlarının (Dockerfile) saklandığı uzak sunucudur.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;docker pull docker_hub_kullanıcı_adı/docker_imaj_adı&lt;/code&gt; komutu ile uzaktaki imajı kendi bilgisayarımıza çekebiliriz.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;docker-compose-nasıl-çalışır-&quot;&gt;Docker Compose Nasıl Çalışır ?&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Docker Compose&lt;/strong&gt; çalışmak için bir adet “ &lt;strong&gt;docker-compose.yml&lt;/strong&gt; “ ayar (config) dosyasına ihtiyaç duyar. Docker Compose “ docker-compose.yml “ dosyasında tanımlanan servisleri (Container) &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose build&lt;/code&gt; komutu ile imajını alır. &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose up&lt;/code&gt; komutu ile de Docker Container içersine koyar çalıştır. &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose stop&lt;/code&gt; komutu ile çalışan servisleri durdurabilir veya &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose down&lt;/code&gt; ile silebiliriz.&lt;/p&gt;
+
+&lt;p&gt;Hali hazırda çalışan servisleri görüntülemek için &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose ps&lt;/code&gt; komutunu kullanabiliriz.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;basit-bir-örnek-yapalım&quot;&gt;Basit Bir Örnek Yapalım&lt;/h4&gt;
+
+&lt;p&gt;Linux kullandığım için Linux komut satırı (terminal) üzerinden gideceğim. Terminal deyince hemen korkmanıza gerek yok basit klasör / dosya oluştur vb. işlemleri yapacağız. Siz isterseniz sağtık klasör/dosya oluştur vs. ile de yapabilirsiniz.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# docker-compose-example ismiyle bir klasör oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;docker-compose-example
+
+&lt;span class=&quot;c&quot;&gt;# docker-compose-example klasörünün içerisine giriyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;docker-compose-example
+
+&lt;span class=&quot;c&quot;&gt;# musul ismiyle klasör oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;musul
+
+&lt;span class=&quot;c&quot;&gt;# musul klasörünün içerisine index.html oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;musul/index.html
+
+&lt;span class=&quot;c&quot;&gt;# musul klasörünün içerisinede ki index.html içerisine &quot; &amp;lt;h1&amp;gt;Musul&amp;lt;/h1&amp;gt; &quot; satırını ekliyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;h1&amp;gt;Welcome Musul&amp;lt;/h1&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; musul/index.html
+
+&lt;span class=&quot;c&quot;&gt;# kerkuk ismiyle klasör oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;kerkuk
+
+&lt;span class=&quot;c&quot;&gt;# kerkuk klasörünün içerisine index.html oluşturuyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;kerkuk/index.html
+
+&lt;span class=&quot;c&quot;&gt;# kerkük klasörünün içerisinede ki index.html içerisine &quot; &amp;lt;h1&amp;gt;Kerkuk&amp;lt;/h1&amp;gt; &quot; satırını ekliyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;h1&amp;gt;Welcome Kerkuk&amp;lt;/h1&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; kerkuk/index.html
+
+&lt;span class=&quot;c&quot;&gt;# docker-compose.yml ismiyle bir dosya oluşturuyouz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;docker-compose.yml
+
+&lt;span class=&quot;c&quot;&gt;# oluşturduğumuz dosyanın içerisini dolduruyoruz.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'version: &quot;3&quot;
+services:
+    website1:
+        image: nginx
+        ports:
+        - &quot;82:80&quot;
+        volumes:
+        - ./musul:/usr/share/nginx/html
+    website2:
+        image: nginx
+        ports:
+        - &quot;83:80&quot;
+        volumes:
+        - ./kerkuk:/usr/share/nginx/html
+    database:
+        image: mysql
+        restart: always
+        environment:
+            - MYSQL_DATABASE=veri_tabanı_adı
+            - MYSQL_ROOT_PASSWORD=root_sifresi
+            - MYSQL_USER=mysql_kullanicisi
+            - MYSQL_PASSWORD=mysql_kullanici_sifresi
+        ports:
+            - &quot;8989:3306&quot;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; docker-compose.yml
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;!-- **&quot; docker-compose.yml &quot;** ismiyle bir dosya oluşturup içerisine aşağıdaki komutları yazalım. --&gt;
+
+&lt;p&gt;Tüm adımları eksiksiz uyguladıysak  &lt;strong&gt;” docker-compose.yml “&lt;/strong&gt; dosyamız aşığda ki gibi görünmelidir.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3'&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;website1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;82:80&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./musul:/usr/share/nginx/html&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;website2&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;83:80&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./kerkuk:/usr/share/nginx/html&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;always&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;MYSQL_DATABASE=veri_tabanı_adı&lt;/span&gt;
+            &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;MYSQL_ROOT_PASSWORD=root_sifresi&lt;/span&gt;
+            &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;MYSQL_USER=mysql_kullanicisi&lt;/span&gt;
+            &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;MYSQL_PASSWORD=mysql_kullanici_sifresi&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;8989:3306&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Dosyanın içeriğini inceliyelim.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Değer&lt;/th&gt;
+      &lt;th&gt;Açıklaması&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;adından da anlaşılacağı üzere docker-compose version numaramız&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;services&lt;/td&gt;
+      &lt;td&gt;kullanacağımız servislerin tanımlandığı alan.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;website1&lt;/td&gt;
+      &lt;td&gt;servisimizin adını tanımladığımız alan.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;website2&lt;/td&gt;
+      &lt;td&gt;diğer bir servisimizin adı.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;mysql&lt;/td&gt;
+      &lt;td&gt;bir başka servisimizin adı.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;image&lt;/td&gt;
+      &lt;td&gt;servizimizin kullanacağı imajı(image) adı.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;volumes&lt;/td&gt;
+      &lt;td&gt;Docker Konteyner ile kendi bilgisayarımızda ki klasörleri eşitlediğimiz alan&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ports&lt;/td&gt;
+      &lt;td&gt;servisimizin dışarıya açılan portun kendi bilgisayarımızda hangi porta karşılık geleceğini tanımladığımız alan.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;restart&lt;/td&gt;
+      &lt;td&gt;servisimiz herhangi bir sebepten ötürü durursa ne sıklıkta yeniden başlamayı deniyeceğini belirttiğimiz alan. örnek: “ always “ her zaman&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;environment&lt;/td&gt;
+      &lt;td&gt;servisimizin ortam değişkenlerini tanımladığımız alan.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;daha iyi anlaşılması için bir kaç kısmı daha açıklayalım.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Volume&lt;/strong&gt; :
+&lt;code class=&quot;highlighter-rouge&quot;&gt;./musul:/usr/share/nginx/html &lt;/code&gt;  ifadesi ile bilgisayarımızda yer alan “musul” klasörünü servisimizin içerisinde ki “/usr/share/nginx/html” klasörüne eşitlemiş oluyoruz.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Ports&lt;/strong&gt; :
+docker-compose.yml da yer alan &lt;code class=&quot;highlighter-rouge&quot;&gt;82:80&lt;/code&gt; ifadesi ile servisimizin dışarıya açık olan “80” portunu bilgisayarımzda ki “82” portuna eşitlemiş oluyoruz.
+daha sonra tarayıcımızdan http://localhost:82 yazarak servisimize erişebiliriz.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;environment&lt;/strong&gt; : 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;MYSQL_DATABASE=veri_tabanı_adı&lt;/code&gt; ifadesi ile servisimizin içerisinde yer alan &lt;code class=&quot;highlighter-rouge&quot;&gt;MYSQL_DATABASE&lt;/code&gt; değişkenini “veri_tabanı_adı” olarak ayarlamış oluyoruz.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose up -d&lt;/code&gt; komut ile servislerimizi ayağa kaldıralım.
+&lt;!-- herhangi bir sorun ile karşılaşmadıysanız aşağıdakine benzer bir çıktı almalısınız. --&gt;
+&lt;!-- ![docker compose up komutu çıktı görüntüsü](/assets/posts/2/docker-compose-up.jpg) --&gt;&lt;/p&gt;
+
+&lt;p&gt;Tarayıcıdan önce http://localhost:82
+&lt;img src=&quot;/assets/posts/2/ornek-musul.jpg&quot; alt=&quot;docker compose - ornek musul&quot; /&gt;
+daha sonra http://localhost:83 adresine gidelim.
+&lt;img src=&quot;/assets/posts/2/ornek-kerkuk.jpg&quot; alt=&quot;docker compose - ornek kerkuk&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Yukarıda ki çıktıları aldıysanız doğru yoldasınız demektir.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose exec {service_adı} {komut}&lt;/code&gt; komutu ile servislerimizin içerisinde komut çalıştırabilmekteyiz. Örneğin :&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;database mysql &lt;span class=&quot;nt&quot;&gt;-uroot&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-proot_sifresi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;çıktı:
+&lt;img src=&quot;/assets/posts/2/docker-compose-database-connect.jpg&quot; alt=&quot;docker compose exec örneği&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;veri tabanında ki tabloları görüntüleyelim.&lt;/p&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;databases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;çıktı:
+&lt;img src=&quot;/assets/posts/2/docker-compose-mysql-show-database.jpg&quot; alt=&quot;docker compose - show database&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;oluşturduğumuz.&lt;/p&gt;
+
+&lt;p&gt;“&lt;strong&gt;veri_tabanı_adi&lt;/strong&gt;” adlı veri tabanını (database) görmekteyiz.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;sonuç&quot;&gt;Sonuç&lt;/h3&gt;
+
+&lt;p&gt;Docker Compose, docker-compose.yml, DockerHub, Nedir ? öğrenmiş olduk. Öğrendiklerimizide basit bir örnekle pekiştirdik.
+“Yeni nesil geliştirme ortamı “ serimizin 2.bölümünü tamamladık. 3. bölümde “ &lt;strong&gt;Laradock&lt;/strong&gt; “ konusuna değineceğiz.&lt;/p&gt;</content><author><name>Oğuzcan Demircan</name><email>oguzcandemircan@gmail.com</email></author><category term="docker compose" /><category term="docker" /><category term="yeni nesil geliştirme ortami" /><category term="geliştirme ortamı" /><category term="yazılım" /><category term="software" /><summary type="html">Yeni Nesil Geliştirme Ortamı serimizin 2.bölümüne hoş geldiniz. 2. bölümde ” Docker Compose “ konusuna değineceğiz. Docker Compose Nedir ? DockerHub Nedir ? docker-compose.yml nedir ? Docker Compose Nasıl çalışır ? vb. sorulara cevap arıyacağız.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/posts/2/docker-compose.jpg" /></entry></feed>
