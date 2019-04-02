@@ -2,10 +2,11 @@
 layout: post
 # title:  Yeni nesil geliştirme ortamı Docker ! <br> 2.bölüm - docker compose
 title: "Yeni Nesil Geliştirme Ortamı Bölüm 3: Laradock"
-description: "Bu makale de Docker nedir ? Docker biz geliştiriciler için ne ifade ediyor ? Neden Docker kullanalım ? Dockerı nasıl kullanırız vb. gibi sorulara cevap arıyoruz."
-keywords: docker, laradock, laravel, php, geliştirme ortamı
+description: "Yeni nesil geliştirme ortami serimizin 3. bölümüne hoş geldiniz.
+Bu bölümde konumuz Laradock. Laradock ile tekli ve çoklu projeler üzerinde nasıl çalışabiliriz ? Laradock nedir ? vb. sorulara cevap arıyacağız ve nginx + php + mysql + phpmyadmin kullanarak örnek laravel projesi yapacağız."
+keywords: laradock, docker, laravel, mysql, phpmyadmin, nginx, php, geliştirme ortamı, docker-compose, software, yazılım
 image: /assets/posts/3/laradock.jpg
-tags: [laradock, docker, laravel, software, php, geliştirme ortamı, yazılım]
+tags: [laradock, docker, laravel, mysql, phpmyadmin, nginx, php, geliştirme ortamı, docker-compose, software, yazılım]
 categories: [docker]
 ---
 
@@ -77,7 +78,7 @@ Laradock klasörüne geçelim ve Laravel projemiz için gerekli olan Nginx ve My
 # İlk defa çalıştırdığınızda bu kısım biraz uzun sürebilir.
 docker-compose up -d nginx mysql
 ```
-Nginx konfigürasyonlarının tanımlandığı klasöre 2 adet yeni konfigürasyon oluşturalım ve gerekli tanımlamaları yapalım.
+Nginx konfigürasyonlarının tanımlandığı klasöre 2 adet yeni konfigürasyon dosyası oluşturalım ve gerekli tanımlamaları yapalım.
 ```bash
 touch nginx/sites/project1.conf
 touch nginx/sites/project2.conf
@@ -129,7 +130,7 @@ server {
 }
 ```
 
-**"laradock/nginx/sites/project2.conf"** dosyasının içerisine aşağıda ki tanımlamaları yapalım.
+**"laradock/nginx/sites/project2.conf"** dosyasının içerisine de aşağıda ki tanımlamaları yapalım.
 ```nginx
 server {
 
@@ -241,16 +242,48 @@ cd project1
 php artisan migrate
 php artisan make:auth
 ```
-**http://project1.local/register** adresine gidelim ve gerekli alanları doldurarak kayıt olalım.
+**http://project1.local/register** adresine gidelim ve gerekli alanları doldurarak kayıt işlemini gerçekleştirelim.
 ![laravel kayıt sayfası - laradock](/assets/posts/3/register.png)
 
-kayıt olduktan sonra home sayfasına yönlendirileceksiniz.
-**http://project1.local/home** 
+kayıt olduktan sonra **http://project1.local/home** adresine yönlendirileceksiniz.
+ 
 ![laravel home - laradock](/assets/posts/3/home.png)
 
-Yukarıda ki gibi bir sayfa ile karşılaştıysak
+Yukarıda ki gibi bir sayfa ile karşılaştıysak kayıt işlemimiz başarıyla gerçekleşmiştir. 
 
+Yaptığımız işlemleri veri tabanında görmek için **"PhpMyAdmin"** servisimizi başlatalım.
 
+```bash
+# laradock klasörü içerisinde iken
+docker-compose up -d phpmyadmin
+```
 
+PhpMyAdmin ' e erişmek için  **http://localhost:8080/** adresine gidelim.
 
-<!-- ![laravel - laravel hoşgeldin sayfası](/assets/posts/3/laravel-welcome-page) -->
+![Laradock - PhpMyAdmin](/assets/posts/3/phpyadmin.png)
+
+Yukarıda ki gibi bir görüntü ile karşılaştıysak doğru yoldayız demektir.
+
+| Sunucu | mysql |
+| Kullanıcı Adı | root |
+| Parola | root |
+
+Gerekli alanları yukarıdaki tabloda verilen bilgilerle doldurup giriş yaplabiliriz.
+
+Giriş yaptıktan sonra "default" veritabanının "users" tablosuna giderek kullanıcı kaydımızın gerçekleşip gerçekleşmediğini teyit edebiliriz.
+
+![Laradock - PhpMyAdmin](/assets/posts/3/phpmyadmin-2.png)
+
+Gördüğünüz gibi kayıt işlemimiz gerçekleşmiş. :)
+
+---
+
+> Not: Veri tabanı ayarlarını yaparken root kullanıcısının şifresinin neden root olduğunu vs. merak ediyorsanız. Laradock klasörü altında **".env"** dosyasını incelemenizi tavsiye ediyorum.
+> Laradock hakkında daha detaylı bilgi için [laradock.io](http://laradock.io/) adresini ziyaret edebilirsiniz.
+
+---
+
+### Sonuç
+"Yeni nesil geliştirme ortamı" serimizin 3. bölümünde konumuz Laradock ' tu. Bu bölümde 
+Laradock nedir ? Nasıl kullanılır öğrenmiş olduk. Hem tekli hemde çoklu proje örnekleri ile öğrendiklerimizi pekiştirdik. 
+Sizinde fark edeceğiniz üzere her yeni proje için, önce nginx konfigürasyonlarını ayarlıyoruz ve nginx servisimizi yeniden başlatıyoruz. Daha sonra etc dosyamızı düzenliyoruz. Son olarak da workspace servisimizin içerisine girip gerekli dosyaları composer vs. araçlar ile oluşturuyoruz. "Yeni nesil geliştirme ortamı" serimizin 4. bölümünde bu soruna değineceğiz ve bu işlemleri nasıl tek satır kod ile halledebileceğimizi öğreneceğiz. 4. bölümde görüşmek üzere.
