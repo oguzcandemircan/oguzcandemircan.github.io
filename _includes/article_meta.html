@@ -1,0 +1,20 @@
+<!-- Schema.org -->
+<meta itemprop="name" content="{{ page.title }} - {{ site.author.name }}"/>
+<meta itemprop="description" content="{{ page.description }}"/>
+<meta itemprop="image" content="{{ site.url }}{{ page.image }}"/>
+
+<!-- Facebook -->
+<meta property="og:title" content="{{ page.title }} - {{ site.author.name }}"/>
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:image" content="{{ site.url }}{{ page.image }}"/>
+<meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+<meta property="og:type" content="article" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="{{ site.author.twitter }}" />
+<meta name="twitter:site" content="@{{ site.author.twitter }}" />
+<meta name="twitter:creator" content="{{ site.author.twitter }}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:title" content="{{ page.title }} - {{ site.author.name }}" />
+<meta property="og:description" content="{{ page.description }}" />
+<meta property="og:image" content="{{ site.url }}{{ page.image }}" />

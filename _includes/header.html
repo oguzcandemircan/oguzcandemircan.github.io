@@ -21,7 +21,7 @@
     {% if page.keywords %}
     <meta name="keywords" content="{{ page.keywords }}">
     {% else%}
-    <meta name="keywords" content="{{ site.meta.tags }}">
+    <meta name="keywords" content="{{ site.meta.keywords }}">
     {% endif %}
 
     <!--  Style CSS -->
@@ -48,7 +48,7 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     
-    <script async src="/assets/js/custom.js"></script>
+    <script src="/assets/js/custom.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137191559-1"></script>
@@ -59,6 +59,11 @@
 
         gtag('config', '{{ site.google.tracking_number }}');
     </script>
+    {% if page.homepage %}
+    {% include home_meta.html %}
+    {% else %}
+    {% include article_meta.html %}
+    {% endif %}
 
 </head>
 <body>

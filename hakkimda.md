@@ -1,7 +1,7 @@
 ---
 layout: default
+title: Hakkımda
 description: "Oğuzcan Demircan Kimdir ? Oğuzcan Demircan: Php, Laravel, Docker ve Vue js sevdalısı, açık kaynak ve özgür yazılım destekçisi yazılım geliştirici."
-keywords: ""
 ---
 
 <h4> Oğuzcan Demican Kimdir ?</h4>

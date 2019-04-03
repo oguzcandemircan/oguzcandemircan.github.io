@@ -1,6 +1,7 @@
 ---
 layout: default
-title: 'Etiketler'
+title: Etiketler
+description: laravel, php, docker, vuejs, javascript vb. programlama dilleri, frameworkleri, teknolojileri ve diğer çeşitli alanlar hakkındaki bilgi, düşünce ve deneyimlerimi içeren makalelerin etiketleri
 ---
 
 {%- capture site_tags -%}
