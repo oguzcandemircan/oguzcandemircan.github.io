@@ -16,13 +16,20 @@ comments: true
             {% endfor %}
         </ul>
     </div>
-    <div class="date">
-        <span title="{{ page.date | date: '%d/%m/%Y' }}">
-            {{ page.date | date: "%-d" }}
-            {% assign m = page.date | date: "%-m" | minus: 0 %}
-            {{ site.data.locale.tr.date.month_names[m] }}
-            {{ page.date | date: "%Y" }}
-        </span>
+    <div id="share-bar" class="row mt-4">
+        <div class="col">
+            {% include share_bar.html %}
+        </div>
+        <div class="col">
+            <div class="date">
+                <span title="{{ page.date | date: '%d/%m/%Y' }}">
+                    {{ page.date | date: "%-d" }}
+                    {% assign m = page.date | date: "%-m" | minus: 0 %}
+                    {{ site.data.locale.tr.date.month_names[m] }}
+                    {{ page.date | date: "%Y" }}
+                </span>
+            </div>
+        </div>
     </div>
     <div class="post-navigation hr row">
         {% if page.previous.url %}
@@ -34,9 +41,9 @@ comments: true
             <a title="{{ page.next.title }}" class="next col" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
         {% endif %}
     </div>
-    <div class="disqus-comments"> {% include disqus.html %} </div>
+    <div class="disqus-comments"> {% include disqus.html %}  </div>
 </article>
-
 <script>
     readTime('article', 'time');
 </script>
+
