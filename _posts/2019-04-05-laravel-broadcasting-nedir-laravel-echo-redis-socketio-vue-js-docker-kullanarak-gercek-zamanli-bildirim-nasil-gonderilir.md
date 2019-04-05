@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Laravel Broadcasting Nedir ? Laravel Echo + Redis + Sockek.io + Vue JS + Docker Kullanarak Gerçek Zamanlı Bildirim Nasıl Gönderilir ?"
-description: "Bu makalede Laravel Broadcasting, Echo, Redis, Vue Js  nedir ? vb. sorulara cevap arıyoruz ve Laravel Echo + Redis + Sockek.io + Vue JS + Docker kullanarak gerçek zamanlı (realtime) bildirim uygulaması yapıyoruz."
+title: "Laravel Broadcasting Nedir ? Laravel Echo + Redis + Socket.io + Vue JS + Docker Kullanarak Gerçek Zamanlı Bildirim Nasıl Gönderilir ?"
+description: "Bu makalede Laravel Broadcasting, Echo, Redis, Vue Js  nedir ? vb. sorulara cevap arıyoruz ve Laravel Echo + Redis + Socket.io + Vue JS + Docker kullanarak gerçek zamanlı (realtime) bildirim uygulaması yapıyoruz."
 keywords: laravel, laravel broadcasting, docker, redis, socket.io, laravel echo, web socket, gerçek zamanlı bildirim, gerçek zamanlı uygulamalar , software, yazılım, real time
 image: /assets/posts/5/main.jpg
 tags: [laravel, laravel broadcasting, docker, redis, socket.io, laravel echo, web socket, gerçek zamanlı bildirim, gerçek zamanlı uygulamalar , software, yazılım, real time]
