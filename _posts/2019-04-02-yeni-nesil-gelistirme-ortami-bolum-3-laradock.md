@@ -1,6 +1,5 @@
 ---
 layout: post
-# title:  Yeni nesil geliştirme ortamı Docker ! <br> 2.bölüm - docker compose
 title: "Yeni Nesil Geliştirme Ortamı Bölüm 3: Laradock"
 description: "Yeni nesil geliştirme ortami serimizin 3. bölümüne hoş geldiniz.
 Bu bölümde konumuz Laradock. Laradock ile tekli ve çoklu projeler üzerinde nasıl çalışabiliriz ? Laradock nedir ? vb. sorulara cevap arıyacağız ve nginx + php + mysql + phpmyadmin kullanarak örnek laravel projesi yapacağız."
