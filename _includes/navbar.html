@@ -1,14 +1,17 @@
 <div class="sub-nav">
+    {% assign is_active = false %}
     {% for nav in site.navs %}
      {% assign nav_url = nav.url | append: '.html'%}
-        {% if  nav.url == page.url or nav_url == page.url  %}
+        {% if  (nav.url == page.url and is_active == false %}
+            {% assign is_active = true %}
             <a href="{{ nav.url }}" id="{{ nav.name }}" class="active" >{{ nav.name }}</a>
         {% else %}
             <a href="{{ nav.url }}" id="{{ nav.name }}" >{{ nav.name }}</a>
         {% endif %}
+        <span></span>
     {% endfor %}
 </div>
-
+{% comment %}
 <!-- <br>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -19,3 +22,4 @@
         <li class="breadcrumb-item active" aria-current="page">{{ page.title | downcase }}</li>
     </ol>
 </nav> -->
+{% endcomment %}

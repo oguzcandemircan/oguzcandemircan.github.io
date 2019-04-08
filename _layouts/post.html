@@ -12,7 +12,10 @@ comments: true
     <div class="tags">
         <ul>
             {% for tag in page.tags %}
-            <li><a href="{{ site.url }}/etiketler#{{ tag }}" title="{{ tag }}"><span>{{ tag }}</span></a></li>
+                {% comment %}
+                    <!-- <li><a href="{{ site.url }}/etiketler#{{ tag }}" title="{{ tag }}"><span>{{ tag }}</span></a></li> -->
+                {% endcomment %}
+            <li><a title="{{ tag }}"><span>{{ tag }}</span></a></li>
             {% endfor %}
         </ul>
     </div>

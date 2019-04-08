@@ -2,6 +2,7 @@
 layout: default
 title: Etiketler
 description: laravel, php, docker, vuejs, javascript vb. programlama dilleri, frameworkleri, teknolojileri ve diğer çeşitli alanlar hakkındaki bilgi, düşünce ve deneyimlerimi içeren makalelerin etiketleri
+sitemap: false
 ---
 
 {%- capture site_tags -%}
@@ -18,7 +19,7 @@ description: laravel, php, docker, vuejs, javascript vb. programlama dilleri, fr
         {% endfor %}
     </ul>
 </div>
-
+<!-- 
 <hr>
 
 <div id="full-tags-list">
@@ -33,4 +34,4 @@ description: laravel, php, docker, vuejs, javascript vb. programlama dilleri, fr
         {%- endfor -%}
     </div>
 {%- endfor -%}
-</div>
+</div> -->

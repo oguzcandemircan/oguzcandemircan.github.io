@@ -12,10 +12,10 @@ navs:
   url: /
 
 - name: makaleler
-  url: /makaleler 
+  url: /
 
-- name: etiketler
-  url: /etiketler
+# - name: etiketler
+#   url: /etiketler
 
 - name: Hakkımda
   url: /hakkimda
