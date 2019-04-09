@@ -90,3 +90,5 @@ Tarayıcımızdan `http://localhost:8000/` adresine gidelim ve kaynak kodunu gö
 ![Vuejs server side rendering örneği](/assets/posts/6/vue-ssr-ornegi.png)
 
 Kaynak kodunda `data-server-rendered="true"` etiketini görüyorsak **Vue JS ile server side rendering** işlemimiz başarı ile gerçekleşmiştir.
+
+**Kaynak** : [vue js ssr guide](https://ssr.vuejs.org/guide/){:target="_blank"}
