@@ -25,7 +25,7 @@ Server side rendering de ise ana içerik sunucumuzda derlenir ve tarayıcıya bi
 sudo apt install npm -y
 ```
 
-Daha sonra vue-ssr ismiyle klasöür oluşturup içerisine girelim.
+Daha sonra vue-ssr ismiyle klasör oluşturup içerisine girelim.
 ```bash
 mkdir vue-ssr
 cd vue-ssr
