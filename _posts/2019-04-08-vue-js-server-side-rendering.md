@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Vue Js  ile  Express Kullanarak Serverside Rendering (SSR) Nasıl Yapılır ?"
+title: "Vue Js  ile  Express Kullanarak Server Side Rendering (SSR) Nasıl Yapılır ?"
 description: "Bu makalede vue js ' ile express kullanarak serveride rendering (ssr) yapacağız. Server side sendering ve client side rendering nedir ? vb. sorulara cevap arıyacağız."
 keywords: vue js ile server side rendering nasıl yapılır ?, vue js, server side rendering, ssr, express, vue server renderer, client side rendering
 image: /assets/posts/6/vuejs-ssr.jpg
