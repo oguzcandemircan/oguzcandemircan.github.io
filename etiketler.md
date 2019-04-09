@@ -19,7 +19,7 @@ sitemap: false
         {% endfor %}
     </ul>
 </div>
-<!-- 
+
 <hr>
 
 <div id="full-tags-list">
@@ -34,4 +34,4 @@ sitemap: false
         {%- endfor -%}
     </div>
 {%- endfor -%}
-</div> -->
+</div>
