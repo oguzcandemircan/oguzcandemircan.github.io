@@ -2,3 +2,11 @@
 pre code {
     white-space: pre-wrap!important;
 }
+
+.post-detail a:not([title]) {
+    background-repeat: repeat-x;
+    background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
+    background-size: 1px 1px;
+    background-position: 0 1.05em;
+    background-position: 0 calc(1em + 1px);
+}
