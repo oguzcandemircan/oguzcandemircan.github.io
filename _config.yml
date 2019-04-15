@@ -34,6 +34,8 @@ default_language: tr
 
 author: 
   name: Oğuzcan Demircan
+  first_name: Oğuzcan
+  last_name: Demircan
   title: Software Developer
   image: /assets/images/oguzcan-demircan.jpg
   email: oguzcandemircan@gmail.com
@@ -42,7 +44,7 @@ author:
   gitlab: oguzcandemircan
   medium: oguzcandemircan
   linkedin: oguzcandemircan
-
+  gender: male
 
 footer:
   text: © 2019 Oğuzcan Demircan All Rights Reserved
@@ -50,7 +52,6 @@ footer:
 plugins:
   - jekyll-sitemap
   - jekyll-feed
-
 
 google:
   site_verification: wzOppR9AsH2034ojvcyoE981gi2ux8R27lO4wJXY6pk

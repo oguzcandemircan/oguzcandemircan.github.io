@@ -49,3 +49,12 @@ comments: true
 <script>
     readTime('article', 'time');
 </script>
+{% 
+    include schema_org/BlogPosting.html 
+    headline=page.title
+    genre=page.category
+    keywords=page.keywords
+    content=page.content
+    link=page.permalink
+    date=page.date
+%}

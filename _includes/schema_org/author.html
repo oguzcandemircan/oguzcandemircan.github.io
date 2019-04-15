@@ -1,0 +1,23 @@
+"author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "email": "{{ site.author.email }}",
+    "familyName": "{{ site.author.last_name }}",
+    "givenName": "{{ site.author.first_name }}",
+    "gender": "{{ site.author.gender }}",
+    "description": "{{ site.author.description }}",
+    "image":{  
+      "@type":"ImageObject",
+      "contentUrl":"{{ site.url }}{{ site.author.image }}",
+      "url":"{{ site.url }}",
+      "height":"200",
+      "width":"200"
+    },
+    "sameAs": [
+        "https://github.com/{{ site.author.github }}",
+        "https://www.linkedin.com/in/{{ site.author.linkedin }}",
+        "https://twitter.com/{{ site.author.twitter }}",
+        "https://medium.com/@{{ site.author.medium }}",
+        "https://gitlab.com/{{ site.author.gitlab }}"
+    ]
+}

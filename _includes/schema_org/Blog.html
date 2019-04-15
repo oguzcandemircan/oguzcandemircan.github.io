@@ -1,0 +1,14 @@
+<script type="application/ld+json">
+	{ "@context": "http://schema.org", 
+	 "@type": "Blog",
+	 "description": "{{ site.meta.description }}",
+	 "keywords": "{{ site.meta.keywords }}", 
+	 "url": "{{ site.url }}",
+	 "mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "{{ site.url }}"
+	  },
+	  {% include schema_org/author.html %},
+	  {% include schema_org/publisher.html %}
+	}
+</script>

@@ -7,3 +7,5 @@ homepage: true
 {% for post in site.posts %}
 {% include article.html %}
 {% endfor %}
+
+{% include schema_org/Blog.html %}

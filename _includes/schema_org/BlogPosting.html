@@ -1,0 +1,29 @@
+{% assign wordcount = include.content | number_of_words %}
+
+<script type="application/ld+json">
+   {  
+      "@context":"http://schema.org",
+      "@type":"BlogPosting",
+      "headline":"{{ include.headline }}",
+      "keywords":"{{ include.keywords }}",
+      "description": {{ page.excerpt | strip_newlines | strip | jsonify }},
+      "wordCount":"{{ wordcount }}",
+      "url":"{{ site.url }}{{ include.link }}",
+      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "dateCreated": "{{ include.date | | date: '%Y-%m-%d' }}",
+      "datePublished":"{{ include.date | | date: '%Y-%m-%d' }}",
+      "dateModified": {{ page.last_modified_at | default: page.date | jsonify }},
+      {% include schema_org/author.html %},
+      {% include schema_org/publisher.html %},
+      "image":{
+         "@type":"ImageObject",
+         "contentUrl":"{{ site.url }}{{ page.image }}",
+         "url":"{{ site.url }}"
+      },
+      "mainEntityOfPage":{  
+         "@type":"WebPage",
+         "@id":"{{ site.url }}{{ include.link }}"
+      },
+      "articleBody":"{{ include.content | strip_html | xml_escape | normalize_whitepace | strip_newlines | strip }}"
+   }
+</script>
