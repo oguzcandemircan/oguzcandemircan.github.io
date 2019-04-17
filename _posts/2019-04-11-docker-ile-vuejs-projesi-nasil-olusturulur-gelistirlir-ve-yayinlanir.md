@@ -105,5 +105,5 @@ docker-compose exec frontend yarn add <paket-ismi>
 ---
 
 Kaynaklar:
- - [Dockerize Vue.js App](https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html)
- - [Vue with Docker; initialize, develop and build](https://medium.com/@jwdobken/vue-with-docker-initialize-develop-and-build-51fad21ad5e6)
+ - [Dockerize Vue.js App](https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html){:target="_blank"}
+ - [Vue with Docker; initialize, develop and build](https://medium.com/@jwdobken/vue-with-docker-initialize-develop-and-build-51fad21ad5e6){:target="_blank"}

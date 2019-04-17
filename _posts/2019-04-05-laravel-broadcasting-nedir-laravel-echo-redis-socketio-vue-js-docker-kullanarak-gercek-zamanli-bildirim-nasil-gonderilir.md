@@ -308,10 +308,10 @@ Yukarıdaki çıktıyı aldıysanız her şey yolunda demektir.
 #### Sonuç
 Laravel Broadcasting, Echo, Redis, Vue Js  nedir ? vb. sorulara cevap aradık. Basit gerçek zamanlı bildirim(notification) uygulaması ile öğrendiklerimizi pekiştirdik. 
 
-Daha detaylı bilgi için [Laravel](https://laravel.com/docs/5.8/broadcasting#presence-channels)  Dökümantasyonunu ziyaret edebilirsiniz.
+Daha detaylı bilgi için [Laravel](https://laravel.com/docs/5.8/broadcasting#presence-channels){:target="_blank"}  Dökümantasyonunu ziyaret edebilirsiniz.
 
-Kaynak kodlarını [Github](https://github.com/oguzcandemircan/Laravel-Broadcasting-Real-Time-Notification-App) ' da bulabilirsiniz.
+Kaynak kodlarını [Github](https://github.com/oguzcandemircan/Laravel-Broadcasting-Real-Time-Notification-App){:target="_blank"} ' da bulabilirsiniz.
 
-Makaleyi oluştururken yararlandığım [Kaynak](https://medium.com/@dennissmink/laravel-echo-server-how-to-24d5778ece8b)
+Makaleyi oluştururken yararlandığım [Kaynak](https://medium.com/@dennissmink/laravel-echo-server-how-to-24d5778ece8b){:target="_blank"}
 
 ---

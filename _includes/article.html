@@ -1,3 +1,4 @@
+{% if post.active != false %}
 <article class="post">
     <div>
         <a href="{{ post.url | remove_first:'/'}}">
@@ -23,3 +24,4 @@
         {{ post.date | date: "%Y" }}
     </span>
 </article>
+{% endif %}
