@@ -51,7 +51,7 @@ sistemin yedeğini yani imajını (image) alıp saklıyor. Hazırlanıp saklanan
 
 `docker run {çalıştırmak_istediğimiz_imaj_idsi}` komut ile de imajını aldığımız sistemleri Docker Konteynerına koyup çalıştırıyor.
 Hali hazırda çalışan imajları 
-`docker images` komutu ile görüntüleyebiliriz.
+`docker ps` komutu ile görüntüleyebiliriz.
 `docker ps -a` komutu ile daha önce çalıştırılmış fakat şuanda çalışmayan konteynerları görüntüleyebiliriz.
 
 ----
