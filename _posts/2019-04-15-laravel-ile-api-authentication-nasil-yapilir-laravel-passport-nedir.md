@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "Laravel ile Api Authentication Nasıl Yapılır ? Laravel Passport Nedir ?"
-description: "Bu makalede Laravel ile api kimlik doğrulaması (Authentication) nasıl yapılır ? Laravel Passport Nedir ? vb. sorulara cevap arıyacağız ve örnek bir uygulama yapacağız."
+description: "Bu makalede Laravel ile api authentication (kimlik doğrulaması) nasıl yapılır ? Laravel Passport Nedir ? vb. sorulara cevap arıyacağız ve örnek bir uygulama geliştireceğiz."
 keywords: laravel, api, laravel Passport, authentication, kimlik doğrulama, laravel api authentication, postman, yazılım, software
 image: /assets/posts/8/laravel-passpot-ile-authentication-nasil-yapilir.jpg
 tags: [laravel, api, laravel Passport, authentication, kimlik doğrulama, laravel api authentication, postman, yazılım, software]
 categories: [laravel, api, yazılım, software]
 ---
 
-**Laravel ile api kimlik doğrulaması(authentication)** yapmak için bir çok farklı yöntem ve paket mevcut.
+**Laravel ile api authentication (kimlik doğrulaması)** yapmak için bir çok farklı yöntem ve paket mevcut.
 Bugün bu paketlerden, Laravel' in resmi paketi olan **Laravel Passport** paketi ile api kimlik doğrulama işlemini gerçekleştireceğiz.
 
 Gereksinimler:
@@ -26,7 +26,7 @@ Günümüz projeleri, Masaüstü, Tarayıcı, Mobil vb. birden çok platforma ç
 --- -->
 
 #### Laravel Passport Nedir ?
-Laravel ile yazdığımız apilerde kimlik doğrulaması(authentication) yapabilmemizi kolaylaştıran resmi laravel paketidir.
+Laravel ile yazdığımız apilerde authentication (kimlik doğrulaması) yapabilmemizi kolaylaştıran resmi laravel paketidir.
 
 ---
 
