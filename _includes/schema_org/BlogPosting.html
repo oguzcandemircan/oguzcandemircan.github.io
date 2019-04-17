@@ -24,6 +24,6 @@
          "@type":"WebPage",
          "@id":"{{ site.url }}{{ include.link }}"
       },
-      "articleBody":"{{ include.content | strip_html | xml_escape | normalize_whitepace | strip_newlines | strip }}"
+      "articleBody":{{ include.content | strip_html | xml_escape | normalize_whitepace | strip_newlines | strip | jsonify }}
    }
 </script>
