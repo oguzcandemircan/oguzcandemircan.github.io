@@ -10,11 +10,29 @@
        {% include sidebar.html %}
         <div id="content" class="col-lg-9 offset-lg-3">
             <div class="row justify-content-center justify-content-lg-start">
+                {% if page.categories_page %}
+                <div class="col-12 col-sm-10 left-space">
+                {% else %}
                 <div class="col-lg-6 col-sm-10 left-space">
+                {% endif %}
                     {% include navbar.html %}
                     {{ content }}
                     <div class="mt-4">{{ site.footer.text }}</div>
                 </div>
+                <div class="col-lg-4 offset-lg-1">
+                    <!-- {% for category in site.data.categories %}
+                        <div class="category" >
+                            <a href="{{ site.url }}/kategori/{{ category.slug }}">
+                                <img class="card-img-top" src="{{ site.url }}{{ category.image }}" alt="{{ category.description }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ category.title }}</h5>
+                                    <p class="card-text">{{ category.description }}</p>
+                         
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %} -->
+                </div> 
             </div>
         </div>
     </div>

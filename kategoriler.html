@@ -1,0 +1,22 @@
+---
+layout: default
+title: Kategoriler
+keywords: laravel, vuejs, docker, php, oguzcandemircan.com kategoriler
+description: laravel, php, docker, vuejs, javascript vb. programlama dilleri, frameworkleri, teknolojileri ve diğer çeşitli alanlar hakkındaki bilgi, düşünce ve deneyimlerimi içeren blogun kategorileri
+image: assets/images/oguzcan-demircan.jpg
+categories_page: true
+---
+
+<div class="row categories">    
+{% for category in site.data.categories %}
+    <div class=" col-lg-4 col-md-6 category pr-3" >
+        <a href="{{ site.url }}/kategori/{{ category.slug }}">
+            <img class="card-img-top" src="{{ site.url }}{{ category.image }}" alt="{{ category.description }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ category.title }}</h5>
+                <p class="card-text">{{ category.description }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+</div>

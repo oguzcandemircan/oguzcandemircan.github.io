@@ -1,0 +1,13 @@
+<hr>
+
+<div>
+
+<h3> Kategori: { {{ category.title }} }  </h3>
+
+</div>
+
+<hr>
+{% assign sorted-posts = site.posts | where: "categories",category.slug %}
+{% for post in sorted-posts %}
+{% include article.html %}
+{% endfor %}

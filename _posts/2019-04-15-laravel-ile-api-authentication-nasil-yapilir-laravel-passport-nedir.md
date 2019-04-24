@@ -5,7 +5,7 @@ description: "Bu makalede Laravel ile api authentication (kimlik doğrulaması) 
 keywords: laravel, api, laravel Passport, authentication, kimlik doğrulama, laravel api authentication, postman, yazılım, software
 image: /assets/posts/8/laravel-passpot-ile-authentication-nasil-yapilir.jpg
 tags: [laravel, api, laravel Passport, authentication, kimlik doğrulama, laravel api authentication, postman, yazılım, software]
-categories: [laravel, api, yazılım, software]
+categories: [laravel]
 ---
 
 **Laravel ile api authentication (kimlik doğrulaması)** yapmak için bir çok farklı yöntem ve paket mevcut.

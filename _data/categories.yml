@@ -1,0 +1,22 @@
+-
+  title: Laravel
+  slug: laravel
+  description: PHP Web Framework' ü Laravel hakkında bilgi düşünce ve deneyimlerimi içeren kısım.
+  image: /assets/categories/laravel/laravel.jpg
+
+-
+  title: Vuejs
+  slug: vuejs
+  description: Javascript Web Framework' ü Vuejs hakkında bilgi düşünce ve deneyimlerimi içeren kısım.
+  image: /assets/categories/vuejs/vuejs.jpg
+
+-
+  title: Docker
+  slug: docker
+  description: Docker hakkında bilgi düşünce ve deneyimlerimi içeren kısım.
+  image: /assets/categories/docker/docker.jpg
+
+- title: PHP
+  slug: php
+  description: Php hakkında bilgi düşünce ve deneyimlerimi içeren kısım.
+  image: /assets/categories/php/php.jpg

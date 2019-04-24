@@ -5,7 +5,7 @@ description: "Bu makalede Docker kullanarak yeni bir Vue Js projesi oluşturaca�
 keywords: vue js ile server side rendering nasıl yapılır ?, vue js, server side rendering, ssr, express, vue server renderer, client side rendering
 image: /assets/posts/7/vue-docker.jpg
 tags: [vue js, server side rendering, ssr, express, vue server renderer, client side rendering,]
-categories: 
+categories: [docker, vuejs]
 ---
 
 Bu makalede **Docker** kullanarak yeni bir **Vue Js** projesi **oluşturacağız** **geliştireceğiz** ve **yayınlıyacağız**.

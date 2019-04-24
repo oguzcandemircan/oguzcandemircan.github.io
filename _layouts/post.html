@@ -36,12 +36,12 @@ comments: true
     </div>
     <div class="post-navigation hr row">
         {% if page.previous.url %}
-            <a title="{{ page.next.prev }}" class="prev col" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+            <a title="{{ page.next.prev }}" class="prev col-12" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
         {% else %}
-            <a title="{{ site.navs[0].name }}" class="prev col" href="{{ site.url }}">&laquo; {{ site.navs[0].name }}</a>
+            <a title="{{ site.navs[0].name }}" class="prev col-12" href="{{ site.url }}">&laquo; {{ site.navs[0].name }}</a>
         {% endif %}
         {% if page.next.url %}
-            <a title="{{ page.next.title }}" class="next col" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+            <a title="{{ page.next.title }}" class="next col-12" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
         {% endif %}
     </div>
     <div class="disqus-comments"> {% include disqus.html %}  </div>

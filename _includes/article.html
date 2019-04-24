@@ -1,7 +1,7 @@
 {% if post.active != false %}
 <article class="post">
     <div>
-        <a href="{{ post.url | remove_first:'/'}}">
+        <a href="{{ site.url }}{{ post.url}}">
             <img src="{{ post.image }}" alt="{{ post.title }}" />
             <h3>{{ post.title }}</h3>
             <span class="time">

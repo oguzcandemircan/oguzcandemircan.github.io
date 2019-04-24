@@ -5,7 +5,7 @@ description: "Bu makalede Laravel Broadcasting, Echo, Redis, Vue Js  nedir ? vb.
 keywords: laravel, laravel broadcasting, docker, redis, socket.io, laravel echo, web socket, gerçek zamanlı bildirim, gerçek zamanlı uygulamalar , software, yazılım, real time
 image: /assets/posts/5/main.jpg
 tags: [laravel, laravel broadcasting, docker, redis, socket.io, laravel echo, web socket, gerçek zamanlı bildirim, gerçek zamanlı uygulamalar , software, yazılım, real time]
-categories: [laravel, laravel broadcasting, docker, redis, socket.io, laravel echo, web socket, gerçek zamanlı bildirim, gerçek zamanlı uygulamalar , software, yazılım, real time]
+categories: [laravel]
 ---
 
 Günümüzde birçok modern web uygulaması kullanıcı deneyimini en üst seviyeye çıkartmak için **"gerçek zamanlı (real time)"** güncellenen arayüzler kullanır.
