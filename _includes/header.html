@@ -30,25 +30,17 @@
 
     <!-- FEED XML -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.meta.author }}" href="/feed.xml" />
-
-    {% include favicon.html %}
     
     <script src="/assets/js/custom.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137191559-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', '{{ site.google.tracking_number }}');
-    </script>
+    
+    {{ include analytics.html }}
+    
     {% if page.homepage %}
     {% include home_meta.html %}
     {% else %}
     {% include article_meta.html %}
     {% endif %}
 
+    {% include favicon.html %}
 </head>
 <body>
