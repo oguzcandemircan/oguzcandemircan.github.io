@@ -32,8 +32,11 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.meta.author }}" href="/feed.xml" />
     
     <script src="/assets/js/custom.js"></script>
-    
-    {% include analytics.html %}
+    {% if site.analytics.active %}
+        {% include analytics.html %}
+    {% else %}
+        <!-- Analytics Disable -->
+    {% endif %}
     
     {% if page.homepage %}
     {% include home_meta.html %}

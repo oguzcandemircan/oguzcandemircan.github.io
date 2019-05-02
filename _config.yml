@@ -62,3 +62,6 @@ google:
 
 yandex:
   site_verification: e32936656b1e1458
+
+analytics:
+  active: true
