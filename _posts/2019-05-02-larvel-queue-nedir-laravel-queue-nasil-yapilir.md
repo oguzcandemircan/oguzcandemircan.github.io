@@ -102,7 +102,7 @@ Route::get('share-post-with-queue', function() {
     ]);
     
     $second = 5;
-    foreach(User::find(1)->followers as $follower) {
+    foreach(App\User::find(1)->followers as $follower) {
         App\Jobs\CreatePost::dispatch($follower)->delay(now()->addSeconds($second));
         $second+=5;
     }
