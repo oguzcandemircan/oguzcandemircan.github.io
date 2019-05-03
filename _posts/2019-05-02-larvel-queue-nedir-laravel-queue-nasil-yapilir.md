@@ -63,7 +63,7 @@ composer create-project --prefer-dist laravel/laravel laravel "5.8"
 ```
 laravel klasörü içerisindeki dosyaları bir üst dizine taşıyalım.
 ```bash
-mv laravel/* .
+mv laravel/{.,}* ./
 ```
 
 Laravel ile redis kullanabilmemiz için predis paketini kuralım.
@@ -92,6 +92,7 @@ php artisan make:job CreatePost
 ```
 Yukarıda ki komut ile  `App\Jobs` dizini altında  `CreatePost` ismiyile bir job (iş / görev) oluşmuş oldu.
 
+CreatePost.php içerisine 
 
 
 ```php
@@ -108,3 +109,10 @@ Route::get('share-post-with-queue', function() {
     }
 });
 ```
+
+<video autoplay loop>
+  <source src="/assets/posts/9/laravel-queue-example.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<!-- data-toggle="modal" data-target="#dynamic-modal" -->
