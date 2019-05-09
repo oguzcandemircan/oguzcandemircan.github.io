@@ -138,11 +138,11 @@ Dockerfile ile görüntü oluşturalım. Daha rahat kullanım için etiketliyeli
 #Oluşturduğumuz Dockerfile ile görüntü(image) alıyoruz / oluşturuyoruz.
 docker build -t oguzcandemircan/nginx:1.0 . 
 
-#docker ps komutu ile görüntümüzün(image) oluşup oluşmadığını kontrol ediyoruz.
-docker ps
+#docker images komutu ile görüntümüzün(image) oluşup oluşmadığını kontrol ediyoruz.
+docker images
 ```
 Aşığıdakine benzer bir çıktı almalısınız.
-![docker ps çıktısı](/assets/posts/1/docker-ps.png)
+![docker images çıktısı](/assets/posts/1/docker-ps.png)
 
 Oluşturduğumuz imajı çalıştırıyoruz.
 ```bash
