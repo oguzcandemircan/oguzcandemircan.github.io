@@ -2,9 +2,9 @@
 layout: post
 title:  "Laravel Queue Nedir ? Laravel Queue Nasıl Yapılır ?"
 description: "Bu makalede Laravel ile api authentication (kimlik doğrulaması) nasıl yapılır ? Laravel Passport Nedir ? vb. sorulara cevap arıyacağız ve örnek bir uygulama geliştireceğiz."
-keywords: laravel, queue, laravel queue, laravel kuyruklama
-image: /assets/posts/8/laravel-passpot-ile-authentication-nasil-yapilir.jpg
-tags: [laravel, queue, laravel queue, laravel kuyruklama]
+keywords: laravel queue, laravel, queue, laravel kuyruklama, laravel jobs
+image: /assets/posts/9/Laravel-Queue-Nedir-Nasil-Yapilir.png
+tags: [laravel queue, laravel, queue, laravel kuyruklama, laravel jobs]
 categories: [laravel]
 ---
 
@@ -170,6 +170,10 @@ Biraz karmaşık bir konu olduğu için daha rahat anlaşılması için küçük
 
 Örneği veritabanı üzerinden vermemin sebebi phpmyadmin vb. ile kolayca jobs tablosuna gidip olan biteni izlemeniz içindi. Ama gelin görünki gerçek hayatta bu tarz uygulamalar için ilişkisel veritabanları biraz hantal kalıyor, dolayısı ile redis vb. teknolojilere ihtiyaç duyuyoruz. Laravel, **Beanstalk**, **Amazon SQS**, **Redis** vb. teknolojilere tam destek sağlıyor. Biz genellikle tercih edilen **Redis** üzerinden devam edelim. 
 
+---
+
+#### Laravel Queue Redis Entegrasyonu
+
 Laravel ile Redis kullanabilmemiz için "predis" paketini kuralım.
 ```bash
 composer require predis/predis
@@ -199,9 +203,96 @@ docker-compose up -d redis
 
 Redis yapılandırması ve entegrasyonu Bu kadar basit :)
 
+---
 
 #### Laravel Queue Gecikme (Delay)
-İşlerinize gecikme ekleme isterseniz. `delay()` methodunuz kullanabilirsiniz.
+İşlerimize gecikme eklemek istersek, `delay()` methodunuz kullanabiliriz.
 ```php
 App\Jobs\SendMail::dispatch()->delay(now()->addMinutes(1));
 ```
+---
+
+#### Eş Zamanlı İşler (Synchronous Dispatching)
+Bir işi derhal (eşzamanlı olarak) göndermek istiyorsak, `dispatchNow` methodunu kullanabilirsiniz. Bu methodu kullanırken, iş kuyruğa alınmayacak ve hemen geçerli işlem içinde çalıştırılacaktır.
+
+```php
+App\Jobs\SendMail::dispatchNow()
+```
+---
+
+#### İş Zincirilemesi (Job Chaining) nedir ?
+
+İş zincirlemesi, sırayla çalıştırılması gereken işlem kuyruğuna alınmış işlerin bir listesini belirlememiz sağlar. Sıradaki bir iş başarısız olursa, işlerin geri kalanı çalışmayacaktır. Kuyruğa alınmış bir iş zincirini yürütmek için, `withChain` methodunu kullanabiliriz.
+```php
+App\Jobs\SendMail::withChain([
+    new IkinciBirIs,
+    new UcuncuBirIs,
+])->dispatch()
+```
+---
+
+#### Job Events (İş Etkinlikleri)
+ Laravel Queue ile işlem kuyruğuna aldığımız işler/görevler işlenirken. `JobProcessing`, `JobProcessed` ve `JobFailed` olmak üzere 3 adet etkinlik(event) tetikler. Bizde bu etkinlikleri dinleyerek(listening), Bir iş işlenirken, işlendikten sonra veya başarısız olduğunda yapılacak işlemleri tanımlayabiliriz.
+```php
+#App/Providers/AppServiceProvider.php
+...
+use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Queue\Events\JobProcessed;
+use Illuminate\Queue\Events\JobProcessing;
+...
+
+...
+public function boot()
+{   
+    # İşler işlenirken
+    Queue::before(function (JobProcessing $event) {
+        // $event->connectionName
+        // $event->job
+        // $event->job->payload()
+    });
+
+    #İşler işlendikten sonra
+    Queue::after(function (JobProcessed $event) {
+        // $event->connectionName
+        // $event->job
+        // $event->job->payload()
+    });
+
+    #İşler başarısız olduğunda
+    Queue::failing(function (JobFailed $event) {
+        // $event->connectionName
+        // $event->job
+        // $event->exception
+    });
+}
+...
+```
+
+---
+
+#### Başarısız İşler (Failed Jobs)
+Laravel Queue' da herhangi bir sebepten dolayı iş başarısız olursa, iş sınıfı içerisindeki `failed` methodu tetiklenir(çağırılır/çalıştırılır). Tanımladığımız iş başarısız olduğunda yapılacak işlemleri `failed` methodu altında tanımlayabiliriz.
+
+```php
+/**
+* The job failed to process.
+*
+* @param  Exception  $exception
+* @return void
+*/
+public function failed(Exception $exception)
+{
+    // işlem başarısız olunca gerçekleştirilecek işlemler
+}
+```
+---
+
+### Sonuç
+Sonuç olarak, **Laravel Queue** nedir? ne değildir? **Laravel Queue** nasıl kullanırız? vb. soruların cevaplarını öğrendik. İyi hoş güzelde gerçek hayatta ne işimize yarayacak dememeniz için, gerçek hayatta karşılaşabileceğimiz örnek bir sorun yaratıp çözdük. Umarım **Laravel Queue** hakkında kafanızda soru işareti kalmamıştır. Herhangi bir sorunuz var ise yorumlar bölümünden belirtebilirsiniz. Bir sonraki makalede görüşmek üzere.
+
+---
+
+Kaynak:
+- [Laravel Queue](https://laravel.com/docs/5.8/queues){:target="_blank" rel="nofollow"}
