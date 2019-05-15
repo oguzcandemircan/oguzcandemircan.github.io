@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Laravel Queue Nedir ? Laravel Queue Nasıl Yapılır ?"
-description: "Bu makalede Laravel ile api authentication (kimlik doğrulaması) nasıl yapılır ? Laravel Passport Nedir ? vb. sorulara cevap arıyacağız ve örnek bir uygulama geliştireceğiz."
+description: "Bu makalede Laravel Queue Nedir? Nasıl Yapılır? Laravel Jobs Nedir? vb. sorulara cevap arıyacağız ve Laravel Queue ile örnek yapacağız."
 keywords: laravel queue, laravel, queue, laravel kuyruklama, laravel jobs
 image: /assets/posts/9/Laravel-Queue-Nedir-Nasil-Yapilir.png
 tags: [laravel queue, laravel, queue, laravel kuyruklama, laravel jobs]
