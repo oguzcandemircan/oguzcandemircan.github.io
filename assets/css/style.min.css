@@ -2,7 +2,9 @@
 pre code {
     white-space: pre-wrap!important;
 }
-
+video {
+    max-width: 100%;
+}
 .post-detail a:not([title]) {
     background-repeat: repeat-x;
     background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
