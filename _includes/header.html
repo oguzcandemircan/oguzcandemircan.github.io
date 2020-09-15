@@ -31,7 +31,12 @@
     <!-- FEED XML -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.meta.author }}" href="/feed.xml" />
     
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Custom JS -->
     <script src="/assets/js/custom.js"></script>
+    
     {% if site.analytics.active %}
         {% include analytics.html %}
     {% else %}
