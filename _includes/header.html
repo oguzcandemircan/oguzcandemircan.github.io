@@ -42,6 +42,11 @@
     if("serviceWorker" in navigator) {
         navigator.serviceWorker.register('/sw.js').then(function() {
         console.log("Service Worker registered!");
+            /** Prompt **/
+            self.addEventListener("beforeinstallprompt", function(event) {
+                event.prompt();
+                console.log("beforeinstallprompt!")
+            });
         });
     } else {
         console.log("Browser not supported!");
