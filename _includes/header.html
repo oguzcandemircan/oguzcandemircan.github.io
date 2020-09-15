@@ -39,17 +39,13 @@
     
     <!-- Service Worker Register -->
     <script>
-    if("serviceWorker" in navigator) {
-        navigator.serviceWorker.register('/sw.js').then(function() {
-        console.log("Service Worker registered!");
-            /** Prompt **/
-            window.addEventListener("beforeinstallprompt", function(event) {
-                event.prompt();
-                console.log("beforeinstallprompt!")
-            });
-        });
-    } else {
-        console.log("Browser not supported!");
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+        console.log("Service Worker registered.!");
+        window.addEventListener('beforeinstallprompt', event => {
+            event.prompt();
+            console.log("beforeinstallprompt!")
+      });
     }
     </script>
     {% if site.analytics.active %}
