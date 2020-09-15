@@ -11,6 +11,6 @@ self.addEventListener("activate", function(event) {
     return self.clients.claim();
 });
 /** Prompt **/
-window.addEventListener("beforeinstallprompt", function(event) {
+self.addEventListener("beforeinstallprompt", function(event) {
     event.prompt();
 });
