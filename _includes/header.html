@@ -43,7 +43,7 @@
         navigator.serviceWorker.register('/sw.js').then(function() {
         console.log("Service Worker registered!");
             /** Prompt **/
-            self.addEventListener("beforeinstallprompt", function(event) {
+            window.addEventListener("beforeinstallprompt", function(event) {
                 event.prompt();
                 console.log("beforeinstallprompt!")
             });
