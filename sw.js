@@ -10,3 +10,4 @@ self.addEventListener("activate", function(event) {
     console.log("[Service Worker] Activating Service Worker...");
     return self.clients.claim();
 });
+self.addEventListener('fetch',() => console.log("fetch"));
