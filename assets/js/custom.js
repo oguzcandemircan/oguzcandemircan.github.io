@@ -34,14 +34,3 @@ function readTime(source, target){
     }
     document.getElementById(target).innerHTML = '<i class="far fa-clock"></i> ' + minutes + " dk okuma süresi"
 }
-/**
-PWA
-**/
-/** Register **/
-if("serviceWorker" in navigator) {
-    navigator.serviceWorker.register('/sw.js').then(function() {
-    console.log("Service Worker registered!");
-    });
-} else {
-    console.log("Browser not supported!");
-}
