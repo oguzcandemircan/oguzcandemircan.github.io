@@ -2,7 +2,7 @@
     "short_name": "Oğuzcan Demircan",
     "name": "Oğuzcan Demircan",
     "start_url": "index.html",
-    "scope": "/",
+    "scope": ".",
     "theme_color": "#000",
     "background_color": "#fff",
     "display": "standalone",
