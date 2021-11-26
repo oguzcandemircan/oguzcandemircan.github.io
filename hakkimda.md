@@ -1,11 +1,11 @@
 ---
 layout: default
 title: Hakkımda
-description: "Oğuzcan Demircan Kimdir ? Oğuzcan Demircan: Php, Laravel, Docker ve Vue js sevdalısı, açık kaynak ve özgür yazılım destekçisi yazılım geliştirici."
+description: "Oğuzcan Demircan Kimdir ? Oğuzcan Demircan: PHP, Laravel, Javascript, Vue.js, Node.js, Mysql, Go, Google Cloud, Firebase ve sunucusuz(serverless) sistemler ile ilgilenen tutkulu bir yazılım geliştiriciyim."
 ---
+<p>TR: PHP, Laravel, Javascript, Vue.js, Node.js, Mysql, Go, Google Cloud, Firebase ve sunucusuz(serverless) sistemler ile ilgilenen tutkulu bir yazılım geliştiriciyim.<p>
 
-<h4> Oğuzcan Demican Kimdir ?</h4>
-<p>Php, Laravel, Docker ve Vue js sevdalısı, açık kaynak ve özgür yazılım destekçisi yazılım geliştirici.</p>
+<p>EN: I am a passionate software developer dealing with PHP, Laravel, Javascript, Vue.js, Node.js, Mysql, Go, Google Cloud, Firebase and serverless systems.</p>
 
 <h4>
     YETENEK VE BİLGİ AĞACI
