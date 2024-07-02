@@ -1,1 +1,2 @@
-"# oguzcandemircan.github.io" 
+# [oguzcandemircan.com](https://oguzcandemircan.com)
+
